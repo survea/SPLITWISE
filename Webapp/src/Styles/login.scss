@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    margin-top: 8%;  
+    align-items: center; 
+    justify-content: center;
+    font-family: Montserrat;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h3{
+    font-size: 30px;
+}
+
+.login-form label{
+    font-size: 22px;
+}
+
+.login-form input{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.login-form .login-btn{
+margin-top: 10px;
+    font-size: 20px;
+    background: #45A683;
+    color: white;
+}
