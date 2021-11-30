@@ -1,11 +1,12 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import '../Styles/landing.scss'
  const Header = (props)=>{
     return (
         <nav className = "landingNav fixed-top">
-        <NavLink to = "/"><h3 className = "landing-name">Expense Tracker</h3></NavLink> 
+        <NavLink to = "/"><h3 className = "landing-name">E X P E N S E  T R A C K E R</h3></NavLink> 
      
      <div className = "float">
      <NavLink to = "/login"><button className = "loginBtn">Log In</button></NavLink>
@@ -14,8 +15,17 @@ import '../Styles/landing.scss'
      </div>
         
 
+
     </nav>
     )
 }
 
-export default Header;
+const mapStateToProps = (state)=>{
+   console.log("state is  ",state);
+   return{
+       user: state.user
+   }
+}
+
+const fn = connect(mapStateToProps);
+export default fn(Header);
