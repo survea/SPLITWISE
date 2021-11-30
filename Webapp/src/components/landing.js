@@ -6,7 +6,7 @@ export const Landing = ()=>{
         <div className = "landing ">
            <Header/>
 
-            
+        
             <main >
                 <div className = "landing-heading">
 
