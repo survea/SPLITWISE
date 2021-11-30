@@ -3,15 +3,15 @@ import '../Styles/landing.scss'
 import  Header  from './Header';
 export const Landing = ()=>{
     return (
-        <div className = "landing ">
+        <div className = "landing">
            <Header/>
 
         
             <main >
                 <div className = "landing-heading">
 
-                <h1 className = "landing-header">Track expenses with friends.</h1>
-                <p className = "landing-desc"><strong>Share</strong> bills. <strong>Make sure</strong> everyone gets paid back. <strong>Totally free</strong> for web</p>
+                <h1 className = "landing-header">Track your individual expenses.</h1>
+                <p className = "landing-desc"><strong>Share</strong> bills. <strong>And make sure</strong> the bills are splitted and settled-up.</p>
                
                 </div>
                 
@@ -20,10 +20,10 @@ export const Landing = ()=>{
               
                 </div>
                 <div className = "landing-content">
-                <h1  >Splitting expenses has </h1><h1>never been easier .</h1> 
+                <h1>Splitting expenses are now a piece of cake.</h1> 
                 <ul>
-                    <li><i className="fas fa-check-circle"></i> &nbsp;&nbsp;Share Bills</li>
-                    <li><i className="fas fa-check-circle"></i> &nbsp;&nbsp;Distribute bills</li>
+                    <li><i className="share-bills"></i> &nbsp;&nbsp;Share Bills</li>
+                    <li><i className="distribute-bills"></i> &nbsp;&nbsp;Distribute Bills</li>
                 </ul>
 
                 <a href="http://localhost:3000/signup">   <button className = "landing-button">  Get Started</button></a>
