@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import '../Styles/landing.scss'
  const Header = (props)=>{
@@ -19,4 +20,12 @@ import '../Styles/landing.scss'
     )
 }
 
-export default Header;
+const mapStateToProps = (state)=>{
+   console.log("state is  ",state);
+   return{
+       user: state.user
+   }
+}
+
+const fn = connect(mapStateToProps);
+export default fn(Header);

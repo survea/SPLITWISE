@@ -22,8 +22,8 @@ export const Landing = ()=>{
                 <div className = "landing-content">
                 <h1  >Splitting expenses has </h1><h1>never been easier .</h1> 
                 <ul>
-                    <li><i class="fas fa-check-circle"></i> &nbsp;&nbsp;Share Bills</li>
-                    <li><i class="fas fa-check-circle"></i> &nbsp;&nbsp;Distribute bills</li>
+                    <li><i className="fas fa-check-circle"></i> &nbsp;&nbsp;Share Bills</li>
+                    <li><i className="fas fa-check-circle"></i> &nbsp;&nbsp;Distribute bills</li>
                 </ul>
 
                 <a href="http://localhost:3000/signup">   <button className = "landing-button">  Get Started</button></a>
