@@ -1,7 +1,7 @@
 import React from 'react';
 import DashHeader from '../components/DashHeader';
 import  MainDashboard  from './Dashboard/MainDashboard';
-
+import AddExpense from './Dashboard/AddExpensePopup';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -25,6 +25,7 @@ settlement(){
     return (
       <div >
         <DashHeader />
+        {this.state.showExp && <AddExpense friend = {this.showExpense.bind(this)}/>}
         <div className="flex">
           <MainDashboard friend={this.showExpense.bind(this)} settlement={this.settlement.bind(this)} />
         </div>
