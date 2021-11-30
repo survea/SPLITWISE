@@ -169,7 +169,7 @@
 .flx{
     display: flex;
 }
-.secondBox{
+.boxtwo{
     width: 332px;
     height: auto;
     border: 1px solid gray;
@@ -182,16 +182,16 @@
     margin-right: 12px;
     /* margin-left: px; */
 }
-.myList{
+.list{
     
    
 }
-.myList li{
+.list li{
     list-style-type: none;
     cursor: pointer;
    padding: 8px;
     margin: 2px;
 }
-.myList li:hover{
+.list li:hover{
     background: lightgray;
 }
