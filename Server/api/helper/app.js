@@ -1,4 +1,4 @@
-const url = require('../api/utils/environment');
+const url = require('../utils/environment');
 const mongoose = require('mongoose');
 mongoose.connect(url.mongo);
 
