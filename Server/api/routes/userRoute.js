@@ -56,5 +56,8 @@ app.post('/getData',(req,resultData)=>{
     console.log("hello",req.body);
     // userOperation.GetData(resultData);
 })
+app.post('/addExpense',(req,res)=>{
+    userOperation.AddExpense(req.body,res);
+})
 
 module.exports =  app;

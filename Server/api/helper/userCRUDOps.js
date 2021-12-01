@@ -65,6 +65,18 @@ const userOperation = {
             }
         })
 
-    }
+    },
+    AddExpense(userObject,response){
+   
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }else{
+               console.log(doc);
+                response.json({Status: "S",msg: "Added succesfully",doc: doc});
+            }
+        })
+       }
 }
 module.exports = userOperation;
