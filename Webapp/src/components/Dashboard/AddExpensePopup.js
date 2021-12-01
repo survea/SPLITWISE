@@ -1,0 +1,108 @@
+import React from "react";
+import { connect } from "react-redux";
+import {instance} from "../../utilities/AxiosConfig";
+import "../../Styles/Popup.scss"
+import { store } from "../../redux/store";
+import { userActionCreator } from "../../redux/actionCreator/userAction";
+export class AddExpense extends React.Component {
+  constructor(props) {
+    super(props);
+    this.input = {};
+    this.state = {
+      chips: []
+    };
+  }
+  getdate() {
+    var today = new Date();
+
+    return (
+      today.getFullYear() +
+      "-" +
+      ("0" + (today.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + today.getDate()).slice(-2)
+    );
+  }
+  onChange = chips => {
+    console.log(chips);
+    this.setState({ ...this.state, chips });
+  };
+  save() {
+    this.input.amount = Math.round(parseInt(this.input.amount)/(this.state.chips.length + 1));
+  
+    for(let value of this.state.chips){
+      instance.post('/addExp',{username:this.props.user.username,user:value,inp:this.input}).then((resp)=>{
+        console.log("*****************************00",resp.data.doc);
+        var action = userActionCreator(resp.data.doc,'AddUser');
+       store.dispatch(action);
+        this.props.friend();
+      })
+
+      
+    }
+  }
+  render() {
+    return (
+      <div className="fPop">
+        <div className="fcontent">
+          <div className="fheader">
+            <span>Add an expense</span>
+            <button onClick={this.props.friend}>
+              <i className="fas fa-times" />
+            </button>
+          </div>
+          <div className="exp-inp">
+            <label htmlFor="">With you and</label>
+          </div>
+          <div className="exp-inp2">
+            <input
+              id="description"
+              type="text"
+              placeholder="Enter Description"
+              onChange={e => {
+                this.input[e.target.id] = e.target.value;
+              }}
+            />
+            <input
+              id="amount"
+              type="number"
+              placeholder="Enter Amount"
+              onChange={e => {
+                this.input[e.target.id] = e.target.value;
+              }}
+            />
+           <br/>
+            <input
+              
+              id="date"
+              type="date"
+              onChange={e => {
+                this.input[e.target.id] = e.target.value;
+              }}
+            />
+          </div>
+
+          <div className="pop-btn pop-btns">
+            <button className="btn Add" onClick={this.save.bind(this)}>
+              Save
+            </button>
+            <button className="btn Close" onClick={this.props.friend}>
+              Close
+            </button>
+          </div>
+        </div>
+       
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  console.log("state is  ", state);
+  return {
+    user: state.user
+  };
+};
+
+const fn = connect(mapStateToProps);
+export default fn(AddExpense);
