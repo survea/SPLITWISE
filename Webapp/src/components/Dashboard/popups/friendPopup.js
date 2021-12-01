@@ -1,0 +1,76 @@
+import React from "react";
+import "../../../Styles/frndPop.scss";
+import { instance } from "../../../utilities/AxiosConfig";
+import { userActionCreator } from "../../../redux/actionCreator/userAction";
+import { store } from "../../../redux/store";
+import { connect } from "react-redux";
+
+var userInput = { defaultUser: "" };
+let addFriend = (props) => {
+  userInput.defaultUser = props.user.username;
+            
+  if(userInput.username == props.user.username){
+     alert("you can't add yourself as your Friend");
+     return;
+  }
+  instance
+    .post("/AddFriend", userInput)
+    .then(resp => {
+      if (resp.data.doc) {
+        var action = userActionCreator(resp.data.doc, "AddUser");
+        store.dispatch(action);
+      } else {
+        console.log("user not found");
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+const Friend = props => {
+  return (
+    <div className="friendPopup">
+      <div className="frnd-content">
+        <div className="frnd-header">
+          <span>Add new Friend</span>
+          <button className="float-right" onClick={props.friend}>
+            <i className="fas fa-times" />
+          </button>
+        </div>
+
+        <input
+          id="username"
+          onChange={event => {
+            userInput[event.target.id] = event.target.value;
+          }}
+          placeholder="Enter username"
+          className="frnd-name"
+          type="text"
+        />
+
+        <div className="pop-btn">
+          <button
+            className="btn Add"
+            onClick={() => { addFriend(props);}}
+          >
+            Add Friend
+          </button>
+
+          <button className="btn cut" onClick={props.friend}>
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  console.log("state is  ", state);
+  return {
+    user: state.user
+  };
+};
+
+const fn = connect(mapStateToProps);
+export default fn(Friend);
