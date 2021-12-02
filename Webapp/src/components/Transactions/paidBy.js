@@ -25,7 +25,7 @@ export const PaidBy = (props) => {
                     return <li onClick={(event) => {
                         props.byValue(event.target.id);
                     }} id={value}>
-                        <img className="pro-img" src={require(" ../../../public/Assets/person-profile.png")} alt="Paid by Person" />{value}</li>
+                        <img className="pro-img" src={require("../../../public/Assets/person-profile.png")} alt="Paid To Person" />{value}</li>
                 })
                 }
             </ul>
