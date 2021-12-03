@@ -1,10 +1,21 @@
+// The import files that are needed
+
+@import 'variables';
 
 // Adding styles for the landing/ signup page
 
 // Creating a common style for the page
+
+
 *{
     font-family: 'Roboto', sans-serif;
   }
+
+  // Adding the properties of the splitwise logo
+  .img-logo{
+    height: 55px;
+    margin-left: 85px;
+  }  
   
   // Creating the fixed position for the top navigation bar
   .fixed-top{
@@ -139,7 +150,7 @@
   
   //Creating styles for the heading of the landing header
   .landing-header{
-    background-image: url('https://www.splitwise.com/assets/core/facets.png');
+    background-image: url($backgroundimageurl);
       display: inline-block;
       font-size: 60px;
       margin-top: 50px;
@@ -149,7 +160,7 @@
   
   //Creating styles for the heading of the landing description
   .landing-desc{
-    background-image: url('https://www.splitwise.com/assets/core/facets.png');
+    background-image: url($backgroundimageurl);
       margin-top: 5px;
       font-size: 25px;
       margin-bottom: 25px;
@@ -157,7 +168,7 @@
   
   //Creating styles for the heading of the landing feature
   .landing-feature{
-      background-image: url('https://www.splitwise.com/assets/core/facets.png');
+      background-image: url($backgroundimageurl);
       //background: #F3F3F3;
       width: 100%;
       height: 500px;
@@ -228,4 +239,9 @@
     cursor: pointer;
     color: white;
   }
-  
+
+  // Aligning the image and their dimensions
+  .image-desc{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    
+  }
