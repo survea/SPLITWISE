@@ -6,7 +6,9 @@ import '../Styles/landing.scss'
  const Header = (props)=>{
     return (
         <nav className = "landingNav fixed-top">
-        <NavLink to = "/"><h3 className = "landing-name">E X P E N S E  T R A C K E R</h3></NavLink> 
+        <NavLink to = "/">
+        
+        <h3 className = "landing-name">S P L I T W I S E</h3></NavLink> 
      
      <div className = "float">
      <NavLink to = "/login"><button className = "loginBtn">Log In</button></NavLink>
