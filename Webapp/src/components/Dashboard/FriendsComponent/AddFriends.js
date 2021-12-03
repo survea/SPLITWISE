@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../Styles/Dashboard.scss";
+import "../Styles/Dashboard.scss";
 import FriendList from './FriendList'
 export const AddFriend = (props)=>{
     return(

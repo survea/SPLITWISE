@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import {instance} from "../../utilities/AxiosConfig";
-import "../../Styles/Popup.scss"
+import {instance} from "../../../utilities/AxiosConfig";
+import "./Popup.scss"
 import Chips, { Chip } from "react-chips";
-import { store } from "../../redux/store";
-import { userActionCreator } from "../../redux/actionCreator/userAction";
+import { store } from "../../../redux/store";
+import { userActionCreator } from "../../../redux/actionCreator/userAction";
 export class AddExpense extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +32,7 @@ export class AddExpense extends React.Component {
     this.input.amount = Math.round(parseInt(this.input.amount)/(this.state.chips.length + 1));
   
     for(let value of this.state.chips){
-      instance.post('/addExpense',{username:this.props.user.username,user:value,inp:this.input}).then((resp)=>{
+      instance.post('/dashboard/addExpense',{username:this.props.user.username,user:value,inp:this.input}).then((resp)=>{
         console.log("*****************************00",resp.data.doc);
         var action = userActionCreator(resp.data.doc,'AddUser');
        store.dispatch(action);

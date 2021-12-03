@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../Styles/frndPop.scss";
+import "./frndPop.scss";
 import { instance } from "../../../utilities/AxiosConfig";
 import { userActionCreator } from "../../../redux/actionCreator/userAction";
 import { store } from "../../../redux/store";
@@ -14,7 +14,7 @@ let addFriend = (props) => {
      return;
   }
   instance
-    .post("/AddFriend", userInput)
+    .post("/dashboard/addFriend", userInput)
     .then(resp => {
       if (resp.data.doc) {
         var action = userActionCreator(resp.data.doc, "AddUser");

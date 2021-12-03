@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import "../../Styles/Dashboard.scss";
+import "../Styles/Dashboard.scss";
 var expense = 0;
 var balanceOwe = [];
 var balanceOwed = [];
@@ -50,11 +50,11 @@ const MainDashboard = props => {
           <ul>
             {(balanceOwe.length == 0) ? <li>You do not owe anything</li> : balanceOwe.map(value =>
               <li>
-                <img
+                {/* <img
                   className="imgs"
                   src={require("../../images/person-profile.png")}
                   alt="" align="left"
-                />
+                /> */}
                 <div className="inline-style">
                   <h5>{value.name}</h5>
                   <span>you owe ${-(value.data.ammount)}</span>
@@ -70,12 +70,12 @@ const MainDashboard = props => {
           <ul>
             {(balanceOwed.length == 0) ? <li>You do not owe anything</li> : balanceOwed.map(value =>
               <li>
-                <img
+                {/* <img
                   className="imgs"
                   src={require("../../images/person-profile.png")}
                   alt=""
                   align="left"
-                />
+                /> */}
                 <div className="inline-style">
                   <h5>{value.name}</h5>
                   <span>owes you ${value.data.ammount}</span>
