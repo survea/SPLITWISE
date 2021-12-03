@@ -1,13 +1,13 @@
 import React from 'react';
-import DashHeader from '../components/DashHeader';
-import  MainDashboard  from './Dashboard/MainDashboard';
-import AddExpense from './Dashboard/AddExpensePopup';
-import SettleUp  from './Dashboard/settlePopup';
-import { AddFriend } from '../components/Dashboard/AddFriends';
-import  Friend  from './Dashboard/popups/friendPopup';
-import {instance} from '../utilities/AxiosConfig';
-import {userActionCreator} from "../redux/actionCreator/userAction";
-import { store } from "../redux/store"
+import DashHeader from '../DashboardHeaderComponent/DashHeader';
+import  MainDashboard  from '../MainDashboardComponent/MainDashboard';
+import AddExpense from '../popups/AddExpensePopup';
+import SettleUp  from '../popups/settlePopup';
+import { AddFriend } from '../FriendsComponent/AddFriends';
+import  Friend  from '../popups/friendPopup';
+import {instance} from '../../../utilities/AxiosConfig';
+import {userActionCreator} from "../../../redux/actionCreator/userAction";
+import { store } from "../../../redux/store"
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -17,11 +17,11 @@ export class Dashboard extends React.Component {
   }
   componentDidMount(){
     console.log("will Mount********************************************** ",localStorage.username);
-    instance.post('/getData',{username: localStorage.username}).then((resp)=>{
-        console.log("this is response",resp.data.user);
-        var action = userActionCreator(resp.data.user,'AddUser');
-        store.dispatch(action);
-    })
+    // instance.post('/getData',{username: localStorage.username}).then((resp)=>{
+    //     console.log("this is response",resp.data.user);
+    //     var action = userActionCreator(resp.data.user,'AddUser');
+    //     store.dispatch(action);
+    // })
 }
 displayFriend(){
   this.setState({...this.state,displayFriend: !this.state.displayFriend});

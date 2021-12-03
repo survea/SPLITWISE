@@ -1,7 +1,7 @@
 import React from 'react';
-import '../Styles/landing.scss'
-import Header  from './Header';
-import Footer from './Footer';
+import "./Landing.scss"
+import Header  from '../Header';
+// import Footer from './Footer';
 export const Landing = ()=>{
     return (
         <div className = "landing">
