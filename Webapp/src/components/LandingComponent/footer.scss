@@ -1,0 +1,52 @@
+// The import files that are needed
+
+@import 'variables';
+
+// Adding styles for the background image
+
+.social-handle{
+    padding-top: 40px;
+    background-image: url($backgroundimageurl);
+    div{
+        a{
+            font-family: 'Roboto', sans-serif;
+            font-size: 17px;
+            color: black;
+            font-weight: bold;
+            font-weight: normal;
+            padding: 20px;
+            img{
+                padding: 10px;
+            }
+        }
+    }
+}
+
+// Aligning the about sections
+
+.social-handle-icons{
+    div{
+        margin-left: 280px;
+    }
+}
+
+// Styling the catchy phrase
+
+.about{
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 600px;
+}
+
+// resizing the bottom image according to the screen resolution
+
+.bottom-img{
+    width: 1519px;   
+}
+
+// Re-aligning the social media buttons
+
+.social-media{
+    a{
+        margin-left: -30px;    
+    }
+}
