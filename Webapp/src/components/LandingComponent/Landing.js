@@ -1,7 +1,7 @@
 // Importing the required resources for the landing page
 
 import React from 'react';
-import '../Styles/landing.scss'
+
 import Header  from './Header';
 import Footer  from './Footer';
 import asset1 from '../images/asset1@2x.png';
@@ -14,6 +14,9 @@ import asset4 from '../images/asset4@2x.png';
  * @returns 
  */
 
+import "./Landing.scss"
+
+// import Footer from './Footer';
 export const Landing = ()=>{
     return (
         <div className = "landing">

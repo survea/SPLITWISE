@@ -5,14 +5,7 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import logo from '../images/logo.png';
 
-import '../Styles/landing.scss'
-
-/**
- * The header class takes care of the logo, login and signup pages
- * @param {*} props 
- * @returns 
- */
-
+import '../components/LandingComponent/Landing.scss'
  const Header = (props)=>{
     return (
         <nav className = "landingNav fixed-top">

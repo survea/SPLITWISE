@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import {instance} from "../../utilities/AxiosConfig";
-import "../../Styles/Popup.scss"
-import { store } from "../../redux/store";
-import { userActionCreator } from "../../redux/actionCreator/userAction";
+import {instance} from "../../../utilities/AxiosConfig";
+import "./Popup.scss"
+import Chips, { Chip } from "react-chips";
+import { store } from "../../../redux/store";
+import { userActionCreator } from "../../../redux/actionCreator/userAction";
 export class AddExpense extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +32,7 @@ export class AddExpense extends React.Component {
     this.input.amount = Math.round(parseInt(this.input.amount)/(this.state.chips.length + 1));
   
     for(let value of this.state.chips){
-      instance.post('/addExp',{username:this.props.user.username,user:value,inp:this.input}).then((resp)=>{
+      instance.post('/dashboard/addExpense',{username:this.props.user.username,user:value,inp:this.input}).then((resp)=>{
         console.log("*****************************00",resp.data.doc);
         var action = userActionCreator(resp.data.doc,'AddUser');
        store.dispatch(action);
@@ -53,6 +54,14 @@ export class AddExpense extends React.Component {
           </div>
           <div className="exp-inp">
             <label htmlFor="">With you and</label>
+             {/* <input id = "username"  placeholder = "Enter friend name" className = "exp-name" type="text"/> */}
+             <div className="exp-name">
+              <Chips
+                value={this.state.chips}
+                onChange={this.onChange}
+                suggestions={this.props.user.friends}
+              />
+            </div>
           </div>
           <div className="exp-inp2">
             <input

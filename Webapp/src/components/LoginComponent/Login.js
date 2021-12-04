@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/login.scss';
+import './Login.scss';
 export const Login = (props)=>{
     return(
       <div className='container'>

@@ -1,4 +1,4 @@
-const mongoose = require('../connection');
+const mongoose = require('../app.js');
 
 const Schema = mongoose.Schema;
 
@@ -12,4 +12,5 @@ const UserSchema = new Schema ({
 
 const userModel = mongoose.model('user',UserSchema);
 
+// export model
 module.exports = userModel;
