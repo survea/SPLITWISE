@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import '../Styles/dashHeader.scss'
+import "./DashHeader.scss"
  const DashHeader = (props)=>{
     
     return (

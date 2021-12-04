@@ -1,6 +1,6 @@
 import React from 'react';
-import { instance } from '../utilities/AxiosConfig';
-import '../Styles/signup.scss';
+import { instance } from '../../utilities/AxiosConfig';
+import './Signup.scss';
 import { withRouter } from "react-router-dom";
 
 let userObj = {};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login } from '../components/login';
+import { Login } from '../components/LoginComponent/Login';
 import {instance} from '../utilities/AxiosConfig';
 import { withRouter } from "react-router-dom";
  class LoginContainer extends React.Component{
@@ -20,10 +20,10 @@ import { withRouter } from "react-router-dom";
         const token = response.data.token;
         localStorage.setItem('jwtToken',token)
         this.props.history.push("/dashboard");
-        if(response.data.Status == 'S'){
+        if(response.data.Status === 'S'){
             this.props.history.push("/dashboard");
         }
-        else if(response.data.Status == 'F'){
+        else if(response.data.Status === 'F'){
           this.setState({invalid:true});
         }
     })
