@@ -9,11 +9,30 @@ const dashOperation = {
         if (check) {
             userModel.findOneAndUpdate({ username: userObject.defaultUser },
                 { "$push": { "friends": userObject.username, "expensis": { "name": userObject.username, "data": {} } } }, { "new": true },
-                (err, doc) => {
-                    if (err) {
+                (err,doc)=>{
+                    if(err){
                         console.log(err);
-                    } else {
-                        response.json({ Status: "S", msg: "Added succesfully", doc: doc });
+                    }else{
+                        response.json({Status: "S",msg: "Added succesfully",doc: doc});
+                    }
+                }
+            )
+        } else {
+            console.log("status Fail")
+            response.json({ Status: "F", msg: "your friend is not registerd yet" });
+        }
+    },
+    async AddFriendOtherSide(userObject, response) {
+        var check = await this.Find(userObject.defaultUser);
+        console.log(check);
+        if (check) {
+            userModel.findOneAndUpdate({ username: userObject.username },
+                { "$push": { "friends": userObject.defaultUser, "expensis": { "name": userObject.defaultUser, "data": {} } } }, { "new": true },
+                (err,doc)=>{
+                    if(err){
+                        console.log(err);
+                    }else{
+                        response.json({Status: "S",msg: "Added succesfully",doc: doc});
                     }
                 }
             )
@@ -51,6 +70,15 @@ const dashOperation = {
                 response.json({Status: "S",msg: "Added succesfully",doc: doc});
             }
         })
-       }
+        userModel.findOneAndUpdate({username: userObject.defaultUser,"expensis.name":userObject.user},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }else{
+               console.log(doc);
+                response.json({Status: "S",msg: "Added succesfully",doc: doc});
+            }
+        })
+    }
 }
 module.exports = dashOperation;

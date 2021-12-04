@@ -14,7 +14,8 @@ const dashController = {
     },
     // add frined
     addFriend(request, response){
-        dashOperation.AddFriend(request.body,response)
+        dashOperation.AddFriend(request.body,response);
+        dashOperation.AddFriendOtherSide(request.body,response);
     },
     // add expenses
     addExpense(request, response){

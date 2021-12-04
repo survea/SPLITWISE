@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.scss';
-import LoginContainer from '../Containers/LoginContainer';
+import LoginContainer from '../containers/LoginContainer';
 import { Dashboard } from '../components/Dashboard/DashboardComponent/Dashboard';
 import SignUp from '../components/SignupComponent/Signup';
 import { Landing } from '../components/LandingComponent/Landing';
-import AuthComp from '../Containers/AuthComp';
+import AuthComp from '../containers/AuthComp';
 
 export class App extends React.Component {
   render() {
