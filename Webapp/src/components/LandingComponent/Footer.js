@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import '../Styles/footer.scss'
-import bottomImage from '../images/splitwise-bottom.JPG'
-import facebook from '../images/Group 9740.png'
-import twitter from '../images/Group 9741.png'
-import instagram from '../images/Group 9742.png'
-import telegram from '../images/Group 9743.png'
+import './footer.scss'
+import bottomImage from '../../images/splitwise-bottom.JPG'
+import facebook from '../../images/Group 9740.png'
+import twitter from '../../images/Group 9741.png'
+import instagram from '../../images/Group 9742.png'
+import telegram from '../../images/Group 9743.png'
 
 
 const Footer = (props) => {

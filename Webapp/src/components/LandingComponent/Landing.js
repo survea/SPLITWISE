@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import Header  from './Header';
+import Header  from '../Header';
 import Footer  from './Footer';
-import asset1 from '../images/asset1@2x.png';
-import asset2 from '../images/asset2@2x.png';
-import asset3 from '../images/asset3@2x.png';
-import asset4 from '../images/asset4@2x.png';
+import asset1 from '../../images/asset1@2x.png';
+import asset2 from '../../images/asset2@2x.png';
+import asset3 from '../../images/asset3@2x.png';
+import asset4 from '../../images/asset4@2x.png';
 
 /**
  * This is the main landing page of our app
