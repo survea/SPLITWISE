@@ -13,6 +13,7 @@ const dashOperation = {
                     if(err){
                         console.log(err);
                     }else{
+                        this.AddFriendOtherSide(userObject, response);
                         response.json({Status: "S",msg: "Added succesfully",doc: doc});
                     }
                 }
@@ -31,8 +32,6 @@ const dashOperation = {
                 (err,doc)=>{
                     if(err){
                         console.log(err);
-                    }else{
-                        response.json({Status: "S",msg: "Added succesfully",doc: doc});
                     }
                 }
             )
