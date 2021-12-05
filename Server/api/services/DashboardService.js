@@ -72,7 +72,7 @@ const dashOperation = {
         })
     },
     AddExpenseOtherSide(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": parseInt(`-${userObject.inp.amount}`)}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
