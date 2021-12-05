@@ -66,16 +66,16 @@ const dashOperation = {
                 console.log(err);
             }else{
                console.log(doc);
+               this.AddExpenseOtherSide(userObject,response);
                 response.json({Status: "S",msg: "Added succesfully",doc: doc});
             }
         })
-        userModel.findOneAndUpdate({username: userObject.defaultUser,"expensis.name":userObject.user},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
+    },
+    AddExpenseOtherSide(userObject,response){
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
-            }else{
-               console.log(doc);
-                response.json({Status: "S",msg: "Added succesfully",doc: doc});
             }
         })
     }
