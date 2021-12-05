@@ -13,6 +13,17 @@ const userOperation = {
             }
         })
     },
+    // function to update exixting user
+    updateUser(userObject, response) {
+        userModel.findByIdAndUpdate(userObject.id, userObject, (err, doc) => {
+            if (err) {
+                console.log("Error is ", err);
+                response.json({ Status: "F" });
+            } else {
+                response.json({ Status: "S", record: doc });
+            }
+        })
+    },
     // function to login new user
     login(userObject, response) {
         userModel.findOne(userObject, (err, doc) => {
