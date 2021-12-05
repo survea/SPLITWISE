@@ -12,7 +12,7 @@ import { store } from "../../../redux/store"
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { displayFriend: false, showExp: false, settleUp: false }
+    this.state = { displayFriend: false, showExp: false, settleUp: false, showProfile: false }
 
   }
   componentDidMount(){
@@ -41,6 +41,10 @@ settlement(){
     console.log(this.state.settleUp);
 }
 
+profile(){
+  this.setState({...this.state,showProfile: !this.state.showProfile});
+    console.log(this.state.showProfile);
+}
   render() {
 
     return (
