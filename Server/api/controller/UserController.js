@@ -28,8 +28,12 @@ const userController = {
     // register new user
     signIn(request, response){
         userOperation.AddUser(request.body,response);
+    },
+    updateUser(request, response){
+        const id = request.params.id;
+        const respBody = {...request.body, id};
+        userOperation.updateUser(respBody,response);
     }
-    
 }
 
 module.exports =  userController;
