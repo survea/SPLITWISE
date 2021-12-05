@@ -40,11 +40,12 @@ settlement(){
     this.setState({...this.state,settleUp: !this.state.settleUp});
     console.log(this.state.settleUp);
 }
+
   render() {
 
     return (
       <div >
-        <DashHeader />
+        <DashHeader friend = {this.profile.bind(this)} />
         {this.state.displayFriend && <Friend friend={this.displayFriend.bind(this)}/>}
         {this.state.showExp && <AddExpense friend = {this.showExpense.bind(this)}/>}
         {this.state.settleUp && <SettleUp friend = {this.settle.bind(this)}/>}
