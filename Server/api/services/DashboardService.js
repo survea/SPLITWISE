@@ -92,7 +92,7 @@ const dashOperation = {
         })
     },
     settleUpOtherSide(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.data.ammount": userObject.val}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.data.ammount": -userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
