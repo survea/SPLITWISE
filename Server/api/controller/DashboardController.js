@@ -19,7 +19,11 @@ const dashController = {
     // add expenses
     addExpense(request, response){
         dashOperation.AddExpense(request.body,response);
+    },
+    settle(request, response){
+        dashOperation.settleUp(request.body,response);
     }
+
 }
 
 module.exports =  dashController;

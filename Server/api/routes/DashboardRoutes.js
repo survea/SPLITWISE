@@ -13,5 +13,8 @@ router.route('/addFriend')
 router.route('/addExpense')
 .post(dashController.addExpense);
 
+// to settle up
+router.route('/settle')
+.post(dashController.settle);
 
 module.exports =  router;

@@ -9,8 +9,7 @@ export  const PaidTo = (props)=>{
         <ul className = "list">
         {props.list.map((value)=>{
                return  <li onClick = {(event)=>{
-                    props.toValue(event.target.id);
-                  
+                    props.toValue(event.target.id);       
                 }} id = {value}>
                     <img className = "pro-img"src={require("../../../images/person-profile.png")} alt="" srcset=""/>
                     {value}</li>

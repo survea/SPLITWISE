@@ -78,6 +78,26 @@ const dashOperation = {
                 console.log(err);
             }
         })
+    },
+    settleUp(userObject,response){
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$inc":{"expensis.$.data.ammount": userObject.val}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }else{
+                console.log(doc);
+                this.settleUpOtherSide(userObject,response);
+                response.json({Status: "S",msg: "Settled up succesfully",doc: doc});
+            }
+        })
+    },
+    settleUpOtherSide(userObject,response){
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.data.ammount": -userObject.val}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }
+        })
     }
 }
 module.exports = dashOperation;
