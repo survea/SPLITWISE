@@ -29,7 +29,7 @@ import { withRouter } from "react-router-dom";
                     this.props.history.push("/dashboard");
                 }
                 else if(response.data.Status === 'F'){
-                  this.setState({invalid:true});
+                    alert("Incorrect Email or Password");
                 }
             })
         }
