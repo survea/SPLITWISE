@@ -30,11 +30,13 @@ const userOperation = {
             if (err) {
                 console.log(err);
             } else {
-                if (doc) {
+                if (doc && doc.confirmed) {
                     jwt.sign({ doc }, 'secretkey', { expiresIn: '1h' }, (err, token) => {
                         response.json({ Status: "S", msg: "welcome bro " + doc.username, token: token });
                     });
-                } else {
+                } else if(doc && !doc.confirmed) {
+                    response.json({ Status: "F", msg: "Please confirm your email id to start" });
+                }else {
                     response.json({ Status: "F", msg: "Invalid username or password" });
                 }
             }

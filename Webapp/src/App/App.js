@@ -6,7 +6,7 @@ import { Dashboard } from '../components/Dashboard/DashboardComponent/Dashboard'
 import SignUp from '../components/SignupComponent/Signup';
 import { Landing } from '../components/LandingComponent/Landing';
 import AuthComp from '../containers/AuthComp';
-
+import Confirm from '../components/SignupComponent/Confirm';
 export class App extends React.Component {
   render() {
     return (
@@ -15,6 +15,7 @@ export class App extends React.Component {
         <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={LoginContainer}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
+          <Route exact path='/confirm/:id' component={Confirm} />
           <AuthComp>
             <Route exact path="/dashboard" component={Dashboard}></Route>
           </AuthComp>
