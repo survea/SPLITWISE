@@ -2,7 +2,7 @@ import React from 'react';
 import { PaidBy } from './paidByPopup';
 import { PaidTo } from './paidToPopup';
 import { connect } from "react-redux";
-import "./Popup.scss"
+import "./frndPop.scss";
 import {instance} from "../../../utilities/AxiosConfig";
 import { store } from '../../../redux/store';
 import { userActionCreator } from '../../../redux/actionCreator/userAction';
@@ -39,7 +39,7 @@ import { userActionCreator } from '../../../redux/actionCreator/userAction';
      }
 
     //  submit button actions with validation
-     Save(){
+     settle(){
          if(this.state.toValue == "select"){
              alert("please select the reciver");
              return;
@@ -62,7 +62,7 @@ import { userActionCreator } from '../../../redux/actionCreator/userAction';
             }else sender = this.state.toValue;
 
             console.log(parseInt(this.val),this.state.byValue,this.state.toValue);
-          instance.post("/settle",{username: this.props.user.username,user: sender,val: parseInt(this.val)}).then((resp)=>{
+          instance.post("/dashboard/settle",{username: this.props.user.username,user: sender,val: parseInt(this.val)}).then((resp)=>{
               console.log(resp.data.doc);
               var action = userActionCreator(resp.data.doc,'AddUser');
               store.dispatch(action);
@@ -72,13 +72,13 @@ import { userActionCreator } from '../../../redux/actionCreator/userAction';
        } 
     }
   render(){
-        return (
-        <div className = "fPo">
+    return (
+        <div className = "friendPopup">
         <div className = "flx">
-        <div className = "fcontent">
-        <div className = "fheader">   
+        <div className = "frnd-content">
+        <div className = "frnd-header">   
         <span>Settle up</span>
-        <button className = "float-right" onClick = {this.props.friend}><i className="fas fa-times"></i></button>
+        <button className = "float-right" onClick = {this.props.friend}><i class="fas fa-times"></i></button>
         </div>
 
         <div className = "frnd-set">
@@ -90,7 +90,7 @@ import { userActionCreator } from '../../../redux/actionCreator/userAction';
       }} placeholder = "$ 0.0" type="number" name="" id=""/>
       <div className = "pop-btn bt-mr">
 
-        <button className = "btn Add" onClick = {this.Save.bind(this)}>Save</button>
+        <button className = "btn Add" onClick = {this.settle.bind(this)}>Settle</button>
 
         <button className = "btn cut" onClick = {this.props.friend}>Close</button>
     </div>

@@ -13,6 +13,7 @@ const dashOperation = {
                     if(err){
                         console.log(err);
                     }else{
+                        this.AddFriendOtherSide(userObject, response);
                         response.json({Status: "S",msg: "Added succesfully",doc: doc});
                     }
                 }
@@ -31,8 +32,6 @@ const dashOperation = {
                 (err,doc)=>{
                     if(err){
                         console.log(err);
-                    }else{
-                        response.json({Status: "S",msg: "Added succesfully",doc: doc});
                     }
                 }
             )
@@ -67,16 +66,36 @@ const dashOperation = {
                 console.log(err);
             }else{
                console.log(doc);
+               this.AddExpenseOtherSide(userObject,response);
                 response.json({Status: "S",msg: "Added succesfully",doc: doc});
             }
         })
-        userModel.findOneAndUpdate({username: userObject.defaultUser,"expensis.name":userObject.user},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
+    },
+    AddExpenseOtherSide(userObject,response){
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": parseInt(`-${userObject.inp.amount}`)}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }
+        })
+    },
+    settleUp(userObject,response){
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$inc":{"expensis.$.data.ammount": userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
             }else{
-               console.log(doc);
-                response.json({Status: "S",msg: "Added succesfully",doc: doc});
+                console.log(doc);
+                this.settleUpOtherSide(userObject,response);
+                response.json({Status: "S",msg: "Settled up succesfully",doc: doc});
+            }
+        })
+    },
+    settleUpOtherSide(userObject,response){
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.data.ammount": -userObject.val}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
             }
         })
     }

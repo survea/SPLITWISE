@@ -2,6 +2,8 @@ import React from 'react';
 import { instance } from '../../utilities/AxiosConfig';
 import './Signup.scss';
 import { withRouter } from "react-router-dom";
+import logo from '../../images/logo.png'
+
 
 let userObj = {};
 let signupAction = (props) => {
@@ -24,8 +26,12 @@ let signupAction = (props) => {
 };
 const SignUp = (props) => {
     return (
+        <div className="signup-feature">
+            
         <div className="container signup">
+        <img className="signup-img-logo" src={logo} alt="SplitWise Logo"/>
             <div className="signup-form">
+            
                 <h3 className="title-styling">INTRODUCE YOURSELF</h3>
                 <label htmlFor="">Hi there! My name is</label>
 
@@ -48,6 +54,7 @@ const SignUp = (props) => {
                 <button onClick={() => { signupAction(props); }
                 } className="btn">Sign me up!</button>
             </div>
+        </div>
         </div>
 
 

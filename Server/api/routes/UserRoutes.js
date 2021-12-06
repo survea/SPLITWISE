@@ -9,6 +9,10 @@ router.route('/getUser')
 router.route('/signup')
 .post(userController.signIn);
 
+// to update user
+router.route('/updateUser/:id')
+.post(userController.updateUser);
+
 // to login user
 router.route('/login')
 .post(userController.login);
