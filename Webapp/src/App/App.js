@@ -6,6 +6,7 @@ import { Dashboard } from '../components/Dashboard/DashboardComponent/Dashboard'
 import SignUp from '../components/SignupComponent/Signup';
 import { Landing } from '../components/LandingComponent/Landing';
 import AuthComp from '../containers/AuthComp';
+import AboutInfo from '../components/LandingComponent/AboutInfo';
 
 export class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ export class App extends React.Component {
         <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={LoginContainer}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
+          <Route exact path="/aboutus" component={AboutInfo}></Route>
           <AuthComp>
             <Route exact path="/dashboard" component={Dashboard}></Route>
           </AuthComp>

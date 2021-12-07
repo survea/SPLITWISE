@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Header  from '../Header';
+import About  from './About';
 import Footer  from './Footer';
 import asset1 from '../../images/asset1@2x.png';
 import asset2 from '../../images/asset2@2x.png';
@@ -54,8 +55,12 @@ export const Landing = ()=>{
                         <a href="http://localhost:3000/signup">   <button className = "landing-button">  Get Started</button></a><br/><br/>
                     </div>
                 </div> 
-                {/* Using the Footer for the landing page */}
                 
+                {/* Using the About for the landing page */}
+                
+               <About/>
+
+                {/* Using the Footer for the landing page */}
                <Footer/>
             </main>
         </div>
