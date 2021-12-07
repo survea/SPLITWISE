@@ -1,0 +1,83 @@
+// The import files that are needed
+
+@import 'variables';
+
+// Adding styles for the teams page
+
+// Creating a common style for the page
+
+#container {
+	width: auto;
+	max-width: 500px;
+	height: auto;
+	margin: 5em auto;
+	overflow: hidden;
+	border: 10px solid #EEE5E5;
+	outline: 5px dashed #EEE5E5;
+    margin-left: 517px;
+    margin-top: 110px;
+	position: relative;	
+}
+
+// Creating a common style for the images
+
+#container img {
+	width: 50%;
+	height: 50%;
+	margin-bottom: -5px;
+	transition: all 0.3s ease-out;
+	position: relative;
+	z-index: 2;
+}
+
+// Creating style for the images hover
+
+#container:hover img {
+    transform: scale(1.2, 1.2);
+	z-index: 9;
+}
+
+// Creating animation for the text in the box
+
+.box-text {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	padding: 10px;
+    background-image: linear-gradient( 135deg, rgba(129, 255, 239, 0.50) 10%, rgba(240, 103, 180, 0.65) 100%);
+	opacity: 1;
+	transition: 0.3s linear;
+	color: #FFF;
+	font-family: 'Bellefair', serif;
+    font-family: 'Satisfy', cursive;
+	text-shadow: 2px 2px 2px #333;
+	
+}
+
+// Creating animation for the heading in the box
+
+.box-text h1 {
+    font-size: 2.2em;
+	font-family: 'Bellefair', serif;
+    font-family: 'Comfortaa', cursive;
+}
+
+// Creating animation for the text in the paragraph
+
+.box-text p {font-size: 1.5em;}
+
+// Creating animation for the text hovering in the box 
+
+.box-text:hover{opacity: 0;}
+
+// Creating alignment for the team members div
+
+.team-members{
+    margin-left: 690px;
+    i{
+        color: #57C6A8;
+    }
+}
