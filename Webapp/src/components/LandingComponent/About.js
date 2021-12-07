@@ -20,7 +20,11 @@ const About = (props) => {
                     <div>
                         <NavLink to="/aboutus">About</NavLink>
                     </div>
-                    <div><a href="https://blog.splitwise.com/">FAQ</a> <span className="about">Made with :) in Boston, MA, USA</span> </div>
+                    <div>
+                        <NavLink to="/faq">FAQ  </NavLink>
+                        <span className="about">Made with :) in Boston, MA, USA</span>
+                    </div>
+                    {/* <div><a href="https://blog.splitwise.com/">FAQ</a> </div> */}
                     <div><a href="https://dev.splitwise.com/">Partners</a></div>
                     <div className="social-media">
                         <a href="https://www.facebook.com/"><img src={facebook} alt="facebook" /></a>
