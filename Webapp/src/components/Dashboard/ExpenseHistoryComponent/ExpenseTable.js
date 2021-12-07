@@ -2,36 +2,37 @@ import React from "react";
 import { connect } from "react-redux";
 import './ExpenseTable.scss';
 import { instance } from '../../../utilities/AxiosConfig'
+import { store } from '../../../redux/store';
+import { userActionCreator } from '../../../redux/actionCreator/userAction';
 
-var selectedRow;
+var selectedUser;
 function addNewClick() {
     const targetDiv = document.getElementById("expenseTableForm");
     targetDiv.style.display = "block";
 }
-async function removeData(rowData, props) {
+async function removeData(rowData, user) {
     // this.setState({ sendingEmail: true })
     var pr = instance.post('/dashboard/deleteExpense', {
         expense: rowData,
-        selectedUser: props.expenseTable,
-        loggedInUser: props.user
+        selectedUser: selectedUser,
+        loggedInUser: user
     });
     pr.then((response) => {
         console.log(response.data.Status);
-        // if (response.data.msg == "Email sent, please check your inbox to confirm") {
-        //     alert(response.data.msg);
-        //     this.setState({ sendingEmail: false })
-        //     this.form.reset();
-        // } else {
-        //     alert(response.data.msg);
-        //     this.setState({ sendingEmail: false })
-        //     this.form.reset();
-        // }
+        if (response.data.Status == "S") {
+            alert(response.data.msg);
+            var action = userActionCreator(response.data.doc,'AddUser');
+              store.dispatch(action);
+            renderTableData(response.data.doc)
+        } else {
+            alert(response.data.msg);
+        }
     })
 }
-function renderTableData(props) {
-    if (props.user.expensis) {
-        var selectedUserData = props.user.expensis.find((element) => {
-            return element.name == props.expenseTable;
+function renderTableData(user) {
+    if (user.expensis) {
+        var selectedUserData = user.expensis.find((element) => {
+            return element.name == selectedUser;
         })
         return selectedUserData.data.map((rowData, index) => {
             const { _id, desc, date, ammount } = rowData //destructuring
@@ -40,7 +41,7 @@ function renderTableData(props) {
                     <td>{desc}</td>
                     <td>{date}</td>
                     <td>{ammount}</td>
-                    <td><a onClick={() => removeData(rowData, props)}>Delete</a></td>
+                    <td><a onClick={() => removeData(rowData, user)}>Delete</a></td>
                 </tr>
             )
         });
@@ -49,6 +50,7 @@ function renderTableData(props) {
 
 const ExpenseTable = props => {
     const clickedUser = props.expenseTable;
+    selectedUser = props.expenseTable;
     return (
         <div>
             {clickedUser != '' &&
@@ -65,7 +67,7 @@ const ExpenseTable = props => {
                             </tr>
                         </thead>
                         <tbody>
-                            {renderTableData(props)}
+                            {renderTableData(props.user)}
                         </tbody>
                     </table>
                 </div><br /></>
