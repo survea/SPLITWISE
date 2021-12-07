@@ -25,7 +25,8 @@ import './ExpenseTable.scss';
              });
 }
   }
-
+  async function removeData(id) {
+  }
   const ExpenseTable = props => {
     const clickedUser = props.expenseTable;
     return (
