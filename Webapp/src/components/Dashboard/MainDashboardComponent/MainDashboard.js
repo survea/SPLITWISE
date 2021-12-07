@@ -2,11 +2,16 @@ import React from "react";
 import { connect } from "react-redux";
 import "../Styles/Dashboard.scss";
 import personProfile from '../../../images/person-profile.png';
+import { NavLink } from 'react-router-dom';
 var expense = 0;
+var balOwe = 0;
+var balOwed = 0;
 var balanceOwe = [];
 var balanceOwed = [];
 function calculate(props){
    expense = 0;
+   balOwe = 0;
+   balOwed = 0;
    balanceOwe = [];
    balanceOwed = [];
    if(props.user.expensis){
@@ -14,8 +19,10 @@ function calculate(props){
 if(element.data){
   expense += parseInt(element.data.ammount);
       if(element.data.ammount>0){
+        balOwed += parseInt(element.data.ammount);
         balanceOwed.push(element);
       }else if(element.data.ammount<0){
+        balOwe += parseInt(element.data.ammount);
         balanceOwe.push(element);
       }
     }
@@ -29,7 +36,7 @@ if(element.data){
       {calculate(props)}
       <div className="mainDash">
         <div className="DashHeader">
-          <h3>Dashboard</h3>
+        <NavLink to="/dashboard"><h3>Dashboard</h3></NavLink>
           <button className="btn float-right settlement" onClick={props.settlement}>
             Settle up
           </button>
@@ -41,15 +48,15 @@ if(element.data){
         <div className="total">
           <div className="fitting">
             <label htmlFor="">total balance</label>
-            <p className="green">$ {expense}</p>
+            <p className="green">$ {expense.toString().replace("-","")}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you owe</label>
-            <p style = {{color:"red"}}>$ {(expense<0)?expense:0}</p>
+            <p style = {{color:"red"}}>$ {balOwe.toString().replace("-","")}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you are owed</label>
-            <p className="green">$ {(expense>0)?expense:0}</p>
+            <p className="green">$ {balOwed.toString().replace("-","")}</p>
           </div>
         </div>
       </div>
