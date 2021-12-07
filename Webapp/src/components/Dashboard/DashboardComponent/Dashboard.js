@@ -8,11 +8,12 @@ import  Friend  from '../popups/friendPopup';
 import {instance} from '../../../utilities/AxiosConfig';
 import {userActionCreator} from "../../../redux/actionCreator/userAction";
 import { store } from "../../../redux/store"
+import ExpenseTable from '../ExpenseHistoryComponent/ExpenseTable';
 
 export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { displayFriend: false, showExp: false, settleUp: false, showProfile: false }
+    this.state = { displayFriend: false, showExp: false, settleUp: false, showProfile: false, userRequested : '' }
 
   }
   componentDidMount(){
@@ -36,7 +37,7 @@ settle(){
   console.log(this.state.settleUp);
 }
 
-settlement(){
+settlement(userName){
     this.setState({...this.state,settleUp: !this.state.settleUp});
     console.log(this.state.settleUp);
 }
@@ -44,6 +45,10 @@ settlement(){
 profile(){
   this.setState({...this.state,showProfile: !this.state.showProfile});
     console.log(this.state.showProfile);
+}
+
+checkExpenseHistory(userName) {
+this.setState({...this.state, userRequested : userName});
 }
   render() {
 
@@ -55,7 +60,8 @@ profile(){
         {this.state.settleUp && <SettleUp friend = {this.settle.bind(this)}/>}
         <div className="flex">
         <AddFriend friend={this.displayFriend.bind(this)} />
-          <MainDashboard friend={this.showExpense.bind(this)} settlement={this.settlement.bind(this)} />
+          <MainDashboard friend={this.showExpense.bind(this)} settlement={this.settlement.bind(this)} checkExpenseHistory={this.checkExpenseHistory.bind(this)} />
+          <ExpenseTable expenseTable = {this.state.userRequested} checkExpenseHistory={this.checkExpenseHistory.bind(this)} />
         </div>
       </div>
     )
