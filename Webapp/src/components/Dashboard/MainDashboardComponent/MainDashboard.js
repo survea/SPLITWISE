@@ -29,6 +29,9 @@ if(element.data){
    });
   }
 }
+var checkExpenseHistory = (username, props) => {
+  props.checkExpenseHistory(username);
+}
 
  const MainDashboard = props => {
   return (
@@ -75,7 +78,7 @@ if(element.data){
         <div className="float-left ml-3 borders">
           <ul>
             {(balanceOwe.length == 0)?<li>You do not owe anything</li>:balanceOwe.map(value=>
-             <li>
+             <li onClick ={() => props.checkExpenseHistory(value.name)}>
                <img className="imgs" src={personProfile} alt="" align="left"/>
              <div className="inline-style">
                <h5>{value.name}</h5>
@@ -91,7 +94,7 @@ if(element.data){
         <div>
           <ul>
           {(balanceOwed.length == 0)?<li>You are not owed</li>:balanceOwed.map(value=>
-            <li>
+            <li onClick ={() => checkExpenseHistory(value.name, props)}>
             <img className="imgs" src={personProfile} alt="" align="left"/>
             <div className="inline-style">
               <h5>{value.name}</h5>
