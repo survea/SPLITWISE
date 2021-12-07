@@ -17,4 +17,7 @@ router.route('/addExpense')
 router.route('/settle')
 .post(dashController.settle);
 
+router.route('/deleteExpense')
+.post(dashController.deleteExpense);
+
 module.exports =  router;

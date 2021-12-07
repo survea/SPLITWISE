@@ -99,6 +99,26 @@ const dashOperation = {
                 console.log(err);
             }
         })
+    },
+    deleteExpense(reqBody,response){
+        userModel.findOneAndUpdate({username: reqBody.loggedInUser.username,"expensis.name":reqBody.selectedUser},{"$pull" : {"expensis.$.data" : {"desc": reqBody.expense.desc,"date": reqBody.expense.date,"ammount": parseInt(`${reqBody.expense.ammount}`)}}, "$inc":{"expensis.$.total": parseInt(`-${reqBody.expense.ammount}`)}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }else{
+                console.log(doc);
+                this.deleteExpenseOtherSide(reqBody,response);
+                response.json({Status: "S",msg: "deleted expense succesfully",doc: doc});
+            }
+        })
+    },
+    deleteExpenseOtherSide(reqBody,response){
+        userModel.findOneAndUpdate({username: reqBody.selectedUser,"expensis.name":reqBody.loggedInUser.username},{"$pull" : {"expensis.$.data" : {"desc": reqBody.expense.desc,"date": reqBody.expense.date,"ammount": parseInt(`-${reqBody.expense.ammount}`)}}, "$inc":{"expensis.$.total": parseInt(`${reqBody.expense.ammount}`)}},{"new": true},
+        (err,doc)=>{
+            if(err){
+                console.log(err);
+            }
+        })
     }
 }
 module.exports = dashOperation;
