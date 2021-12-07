@@ -37,9 +37,7 @@ export class AddExpense extends React.Component {
         var action = userActionCreator(resp.data.doc,'AddUser');
        store.dispatch(action);
         this.props.friend();
-      })
-
-      
+      }) 
     }
   }
   render() {
