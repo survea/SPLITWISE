@@ -16,13 +16,13 @@ function calculate(props){
    balanceOwed = [];
    if(props.user.expensis){
    props.user.expensis.forEach(element => {
+    expense += parseInt(element.total);
 if(element.data){
-  expense += parseInt(element.data.ammount);
-      if(element.data.ammount>0){
-        balOwed += parseInt(element.data.ammount);
+      if(element.total>0){
+        balOwed += parseInt(element.total);
         balanceOwed.push(element);
-      }else if(element.data.ammount<0){
-        balOwe += parseInt(element.data.ammount);
+      }else if(element.total<0){
+        balOwe += parseInt(element.total);
         balanceOwe.push(element);
       }
     }
@@ -79,7 +79,7 @@ if(element.data){
                <img className="imgs" src={personProfile} alt="" align="left"/>
              <div className="inline-style">
                <h5>{value.name}</h5>
-               <span>you owe ${-(value.data.ammount)}</span>
+               <span>you owe ${-(value.total)}</span>
              </div>
            </li>
             )}
@@ -95,7 +95,7 @@ if(element.data){
             <img className="imgs" src={personProfile} alt="" align="left"/>
             <div className="inline-style">
               <h5>{value.name}</h5>
-              <span>owes you ${value.data.ammount}</span>
+              <span>owes you ${value.total}</span>
             </div>
           </li>
             )}

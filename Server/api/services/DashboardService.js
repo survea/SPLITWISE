@@ -8,7 +8,7 @@ const dashOperation = {
         console.log(check);
         if (check) {
             userModel.findOneAndUpdate({ username: userObject.defaultUser },
-                { "$push": { "friends": userObject.username, "expensis": { "name": userObject.username, "data": {} } } }, { "new": true },
+                { "$push": { "friends": userObject.username, "expensis": { "name": userObject.username, "total": 0, "data": [] } } }, { "new": true },
                 (err,doc)=>{
                     if(err){
                         console.log(err);
@@ -28,7 +28,7 @@ const dashOperation = {
         console.log(check);
         if (check) {
             userModel.findOneAndUpdate({ username: userObject.username },
-                { "$push": { "friends": userObject.defaultUser, "expensis": { "name": userObject.defaultUser, "data": {} } } }, { "new": true },
+                { "$push": { "friends": userObject.defaultUser, "expensis": { "name": userObject.defaultUser, "total": 0, "data": [] } } }, { "new": true },
                 (err,doc)=>{
                     if(err){
                         console.log(err);
@@ -60,7 +60,7 @@ const dashOperation = {
     },
     // function to add a expense
     AddExpense(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": userObject.inp.amount}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$push" : {"expensis.$.data" : {"desc": userObject.inp.description,"date": userObject.inp.date, "ammount": userObject.inp.amount}},"$inc":{"expensis.$.total": userObject.inp.amount}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
@@ -72,7 +72,7 @@ const dashOperation = {
         })
     },
     AddExpenseOtherSide(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{'$set' : {"expensis.$.data.desc": userObject.inp.description,"expensis.$.data.date": userObject.inp.date},"$inc":{"expensis.$.data.ammount": parseInt(`-${userObject.inp.amount}`)}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$push" : {"expensis.$.data" : {"desc": userObject.inp.description,"date": userObject.inp.date,"ammount": parseInt(`-${userObject.inp.amount}`)}},"$inc":{"expensis.$.total": parseInt(`-${userObject.inp.amount}`)}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
@@ -80,7 +80,7 @@ const dashOperation = {
         })
     },
     settleUp(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$inc":{"expensis.$.data.ammount": userObject.val}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$inc":{"expensis.$.total": userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
@@ -92,7 +92,7 @@ const dashOperation = {
         })
     },
     settleUpOtherSide(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.data.ammount": -userObject.val}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.total": -userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
