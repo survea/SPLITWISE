@@ -36,7 +36,7 @@ if(element.data){
       {calculate(props)}
       <div className="mainDash">
         <div className="DashHeader">
-        <NavLink to="/dashboard"><h3>Dashboard</h3></NavLink>
+        <h3>Dashboard</h3>
           <button className="btn float-right settlement" onClick={props.settlement}>
             Settle up
           </button>

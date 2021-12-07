@@ -1,8 +1,9 @@
 import { instance } from '../../utilities/AxiosConfig';
 import './Signup.scss';
-import logo from '../../images/logo.png'
-import React, { Component } from 'react'
-
+import logo from '../../images/logo.png';
+import React, { Component } from 'react';
+import Header  from '../Header';
+import Footer from '../LandingComponent/Footer';
 export default class SignUp extends Component {
 
     // A bit of state to give the user feedback while their email address is being 
@@ -44,7 +45,8 @@ export default class SignUp extends Component {
         return (
             // A ref is put on the form so that it can be reset once the submission
             // process is complete.
-
+            <div>
+            <Header/>
             <div className="signup-feature">
                 <div className="container signup">
                     <img className="signup-img-logo" src={logo} alt="SplitWise Logo" />
@@ -75,6 +77,9 @@ export default class SignUp extends Component {
                     </form>
                 </div>
             </div>
+            <Footer/>
+            </div>
+            
         )
     }
 }
