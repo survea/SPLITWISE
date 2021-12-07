@@ -1,64 +1,80 @@
-import React from 'react';
 import { instance } from '../../utilities/AxiosConfig';
 import './Signup.scss';
-import { withRouter } from "react-router-dom";
 import logo from '../../images/logo.png'
+import React, { Component } from 'react'
 
+export default class SignUp extends Component {
 
-let userObj = {};
-let signupAction = (props) => {
-    console.log(userObj);
-    if (userObj.username == undefined || userObj.password == undefined || userObj.email == undefined) {
-        alert("form is Incomplete");
+    // A bit of state to give the user feedback while their email address is being 
+    // added to the User model on the server.
+    state = {
+        sendingEmail: false
     }
-    else {
-        var pr = instance.post('/signup', userObj);
+    userObj = {};
+
+    onSubmit = event => {
+        event.preventDefault()
+        this.setState({ sendingEmail: true })
+        var pr = instance.post('/email', {
+            username: this.username.value,
+            password: this.password.value,
+            email: this.email.value
+        });
         pr.then((response) => {
             console.log(response.data.Status);
-            if (response.data.Status == "S") {
-                alert("successful Registerd");
-                props.history.push("/Dashboard");
-            } else if (response.data.Status == "F") {
-                alert("username or Email Id Already exist");
+            if (response.data.msg == "Email sent, please check your inbox to confirm") {
+                alert(response.data.msg);
+                this.setState({ sendingEmail: false })
+                this.form.reset();
+            } else {
+                alert(response.data.msg);
+                this.setState({ sendingEmail: false })
+                this.form.reset();
             }
         })
     }
-};
-const SignUp = (props) => {
-    return (
-        <div className="signup-feature">
-            
-        <div className="container signup">
-        <img className="signup-img-logo" src={logo} alt="SplitWise Logo"/>
-            <div className="signup-form">
-            
-                <h3 className="title-styling">INTRODUCE YOURSELF</h3>
-                <label htmlFor="">Hi there! My name is</label>
 
-                <input id="username" onChange={(event) => {
-                    userObj[event.target.id] = event.target.value;
-                }} className="form-control" type="text" required />
+    render = () => {
 
-                <label htmlFor="">Here’s my email address: </label>
+        // This bit of state provides user feedback in the component when something
+        // changes. sendingEmail is flipped just before the fetch request is sent in 
+        // onSubmit and then flipped back when data has been received from the server.
+        const { sendingEmail } = this.state
 
-                <input id="email" onChange={(event) => {
-                    userObj[event.target.id] = event.target.value;
-                }} className="form-control" type="text" required />
+        return (
+            // A ref is put on the form so that it can be reset once the submission
+            // process is complete.
 
-                <label htmlFor="">And here’s my password:  </label>
+            <div className="signup-feature">
+                <div className="container signup">
+                    <img className="signup-img-logo" src={logo} alt="SplitWise Logo" />
+                    <form
+                        onSubmit={this.onSubmit}
+                        ref={form => this.form = form} className="signup-form">
 
-                <input id="password" onChange={(event) => {
-                    userObj[event.target.id] = event.target.value;
-                }} className="form-control" type="text" required />
+                        <h3 className="title-styling">INTRODUCE YOURSELF</h3>
+                        <label htmlFor="">Hi there! My name is</label>
 
-                <button onClick={() => { signupAction(props); }
-                } className="btn">Sign me up!</button>
+                        <input id="username" ref={input => this.username = input} className="form-control" type="text" required />
+
+                        <label htmlFor="">Here’s my email address: </label>
+
+                        <input
+                            type='email'
+                            name='email'
+                            ref={input => this.email = input} className="form-control"
+                            required
+                        />
+
+                        <label htmlFor="">And here’s my password:  </label>
+
+                        <input id="password" ref={input => this.password = input}
+                            className="form-control" type="text" required />
+
+                        <button type='submit' className='btn' disabled={sendingEmail}>Sign me up!</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        </div>
-
-
-    )
+        )
+    }
 }
-
-export default withRouter(SignUp);

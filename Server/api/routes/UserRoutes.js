@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userController = require('../controller/UserController');
+const emailController = require('../controller/EmailController')
 
 // to get all users
 router.route('/getUser')
@@ -16,5 +17,10 @@ router.route('/updateUser/:id')
 // to login user
 router.route('/login')
 .post(userController.login);
+
+router.route('/email')
+.post(emailController.collectEmail);
+
+router.route('/email/confirm/:id').get(emailController.confirmEmail);
 
 module.exports =  router;
