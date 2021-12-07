@@ -30,6 +30,7 @@ const userOperation = {
             if (err) {
                 console.log(err);
             } else {
+                // if the Login ID and Password doesn't match
                 if (doc && doc.confirmed) {
                     jwt.sign({ doc }, 'secretkey', { expiresIn: '1h' }, (err, token) => {
                         response.json({ Status: "S", msg: "welcome bro " + doc.username, token: token });
