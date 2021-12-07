@@ -8,12 +8,18 @@
     width: 50%;
     display: none;
 }
+.green{
+    color: #48b495;
+}
+.red{
+    color: red;
+}
 
 .todo-table {
-    border-style: solid;
+    margin-left: 20px;
     padding: 20px;
-    margin: auto;
     width: 700px;
+    background: #f8f5f5;
 }
 
 body > table{
@@ -88,5 +94,6 @@ label.validation-error{
     width: 30%;
 }
 .title-styling {
-    margin-top: 100px;
+    margin-top: 50px;
+    color: #FF652F;
 }
