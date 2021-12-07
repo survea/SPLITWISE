@@ -40,8 +40,8 @@ function renderTableData(user) {
                 <tr key={_id}>
                     <td>{desc}</td>
                     <td>{date}</td>
-                    <td>{ammount}</td>
-                    <td><a onClick={() => removeData(rowData, user)}>Delete</a></td>
+                    <td className={`${ammount > 0 ? "green" : "red"}`}>$ {ammount.toString().replace("-","")}</td>
+                    <td className = "red"><a onClick={() => removeData(rowData, user)}><i class="fas fa-trash"></i> Delete</a></td>
                 </tr>
             )
         });
@@ -60,10 +60,10 @@ const ExpenseTable = props => {
                     <table className="list" id="todoList">
                         <thead>
                             <tr>
-                                <th>description</th>
+                                <th>Description</th>
                                 <th>Date</th>
                                 <th>Amount</th>
-                                <th>Actions</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
