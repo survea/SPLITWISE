@@ -2,6 +2,8 @@ import { instance } from '../../utilities/AxiosConfig';
 import './Signup.scss';
 import logo from '../../images/logo.png'
 import React, { Component } from 'react'
+import Header from '../Header';
+import Footer from '../LandingComponent/Footer';
 
 export default class SignUp extends Component {
 
@@ -46,6 +48,8 @@ export default class SignUp extends Component {
             // process is complete.
 
             <div className="signup-feature">
+                <Header/>
+                <main>
                 <div className="container signup">
                     <img className="signup-img-logo" src={logo} alt="SplitWise Logo" />
                     <form
@@ -74,6 +78,8 @@ export default class SignUp extends Component {
                         <button type='submit' className='btn' disabled={sendingEmail}>Sign me up!</button>
                     </form>
                 </div>
+                <Footer/>
+                </main>
             </div>
         )
     }

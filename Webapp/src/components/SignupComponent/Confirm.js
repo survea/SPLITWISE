@@ -32,7 +32,7 @@ export default class Confirm extends Component {
             alert("Email id successfully verified");
         }
     })
-  }
+  } 
 
   // While the email address is being confirmed on the server a spinner is 
   // shown that gives visual feedback. Once the email has been confirmed the 
