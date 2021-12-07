@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Header  from '../Header';
+import About  from './About';
 import Footer  from './Footer';
 import asset1 from '../../images/asset1@2x.png';
 import asset2 from '../../images/asset2@2x.png';
@@ -32,10 +33,10 @@ export const Landing = ()=>{
                 <h1 className = "landing-header">Less stress when sharing expenses with anyone.</h1>
                 <p className = "landing-desc"><strong>Share</strong> bills. And make sure the bills are <strong>splitted in the right way</strong> and <strong>settled-up</strong>.</p>
                 <p className = "image-desc">
-                    <img src={asset1} aria-hidden alt="Image features" height="600" width="375"/>
-                    <img src={asset2} aria-hidden alt="Image features" height="600" width="375"/>
-                    <img src={asset3} aria-hidden alt="Image features" height="600" width="375"/>
-                    <img src={asset4} aria-hidden alt="Image features" height="600" width="375"/>
+                    <img src={asset1} aria-hidden alt="Image1 features" height="600" width="375"/>
+                    <img src={asset2} aria-hidden alt="Image2 features" height="600" width="375"/>
+                    <img src={asset3} aria-hidden alt="Image3 features" height="600" width="375"/>
+                    <img src={asset4} aria-hidden alt="Image4 features" height="600" width="375"/>
                 </p>
                 
                 </div>
@@ -54,8 +55,12 @@ export const Landing = ()=>{
                         <a href="http://localhost:3000/signup">   <button className = "landing-button">  Get Started</button></a><br/><br/>
                     </div>
                 </div> 
-                {/* Using the Footer for the landing page */}
                 
+                {/* Using the About for the landing page */}
+                
+               <About/>
+
+                {/* Using the Footer for the landing page */}
                <Footer/>
             </main>
         </div>
