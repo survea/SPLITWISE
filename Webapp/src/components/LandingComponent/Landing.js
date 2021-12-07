@@ -33,10 +33,10 @@ export const Landing = ()=>{
                 <h1 className = "landing-header">Less stress when sharing expenses with anyone.</h1>
                 <p className = "landing-desc"><strong>Share</strong> bills. And make sure the bills are <strong>splitted in the right way</strong> and <strong>settled-up</strong>.</p>
                 <p className = "image-desc">
-                    <img src={asset1} aria-hidden alt="Image features" height="600" width="375"/>
-                    <img src={asset2} aria-hidden alt="Image features" height="600" width="375"/>
-                    <img src={asset3} aria-hidden alt="Image features" height="600" width="375"/>
-                    <img src={asset4} aria-hidden alt="Image features" height="600" width="375"/>
+                    <img src={asset1} aria-hidden alt="Image1 features" height="600" width="375"/>
+                    <img src={asset2} aria-hidden alt="Image2 features" height="600" width="375"/>
+                    <img src={asset3} aria-hidden alt="Image3 features" height="600" width="375"/>
+                    <img src={asset4} aria-hidden alt="Image4 features" height="600" width="375"/>
                 </p>
                 
                 </div>

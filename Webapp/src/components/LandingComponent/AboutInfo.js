@@ -1,7 +1,5 @@
 // Importing the required resources for the About Info page
 
-// Importing the required resources for the landing page
-
 import React from 'react'
 import { connect } from 'react-redux';
 import Header from '../Header';
@@ -10,6 +8,13 @@ import SplitwiseBlog from '../../images/SplitwiseBlog.JPG';
 
 import '../LandingComponent/AboutInfo.scss';
 
+
+/**
+ * The AboutInfo class contains the about information for our app
+ * @param {*} props 
+ * @returns 
+ */
+
 const AboutInfo = (props) => {
     return (
         <div className="about-info">
@@ -17,7 +22,7 @@ const AboutInfo = (props) => {
             <main>
                 <nav >
                     <div>
-                        <img className="blog-image" src={SplitwiseBlog} aria-hidden alt="SplitwiseBlogImage" height="250px" width="350"/>
+                        <img className="blog-image" src={SplitwiseBlog} aria-hidden alt="SplitwiseBlogImage" height="250px" width="350" />
                     </div>
                     <div className="about-info-desc">
                         <p>

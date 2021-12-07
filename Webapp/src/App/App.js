@@ -14,7 +14,7 @@ export class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-        <Route exact path="/" component={Landing}></Route>
+          <Route exact path="/" component={Landing}></Route>
           <Route exact path="/login" component={LoginContainer}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
           <Route exact path="/aboutus" component={AboutInfo}></Route>

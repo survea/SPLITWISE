@@ -30,11 +30,6 @@ const About = (props) => {
                     </div>
                 </span>
             </div>
-            <div className="about">
-
-            </div>
-
-
         </nav>
     )
 }
