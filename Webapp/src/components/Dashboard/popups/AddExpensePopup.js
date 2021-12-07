@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {instance} from "../../../utilities/AxiosConfig";
-import "./Popup.scss"
+import "./frndPop.scss";
 import Chips, { Chip } from "react-chips";
 import { store } from "../../../redux/store";
 import { userActionCreator } from "../../../redux/actionCreator/userAction";
@@ -42,18 +42,18 @@ export class AddExpense extends React.Component {
   }
   render() {
     return (
-      <div className="fPop">
-        <div className="fcontent">
-          <div className="fheader">
+      <div className="friendPopup">
+        <div className="frnd-content">
+          <div className="frnd-header">
             <span>Add an expense</span>
-            <button onClick={this.props.friend}>
-              <i className="fas fa-times" />
+            <button className="float-right" onClick={this.props.friend}>
+              <i class="fas fa-times" />
             </button>
           </div>
           <div className="exp-inp">
             <label htmlFor="">With you and</label>
-             {/* <input id = "username"  placeholder = "Enter friend name" className = "exp-name" type="text"/> */}
-             <div className="exp-name">
+            {/* <input id = "username"  placeholder = "Enter friend name" className = "exp-name" type="text"/> */}
+            <div className="exp-name">
               <Chips
                 value={this.state.chips}
                 onChange={this.onChange}
@@ -89,11 +89,11 @@ export class AddExpense extends React.Component {
             />
           </div>
 
-          <div className="pop-btn pop-btns">
+          <div className="pop-btn pop-btns-expense">
             <button className="btn Add" onClick={this.save.bind(this)}>
               Save
             </button>
-            <button className="btn Close" onClick={this.props.friend}>
+            <button className="btn cut" onClick={this.props.friend}>
               Close
             </button>
           </div>

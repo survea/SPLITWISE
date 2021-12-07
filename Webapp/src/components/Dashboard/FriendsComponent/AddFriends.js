@@ -6,13 +6,16 @@ export const AddFriend = (props)=>{
         <div className = "AddFriendBox">
          
          <div className = "content">
-         <div>
-            <label htmlFor="">FRIENDS</label>
-            <button onClick = {props.friend} className = "float-right">+Add</button>
+         <div class="input-prepend">
+            <span class="add-on"><i class="fa fa-search"><input class="span2" id="filter_search" type="text" placeholder="Filter by name"/></i></span>
          </div>
-         <div>
-               <FriendList/>
-         </div>
+            <div className = "friend">
+                <label htmlFor="">FRIENDS</label>
+                <button onClick = {props.friend} className = " addBtn float-right">+Add</button>
+            </div>
+            <div>
+                <FriendList/>
+            </div>
          </div>
         </div>
     )
