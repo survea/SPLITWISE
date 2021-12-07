@@ -8,7 +8,7 @@ const dashOperation = {
         console.log(check);
         if (check) {
             userModel.findOneAndUpdate({ username: userObject.defaultUser },
-                { "$push": { "friends": userObject.username, "expensis": { "name": userObject.username, "total": 0, "data": [] } } }, { "new": true },
+                { "$push": { "friends": userObject.username, "expensis": { "name": userObject.username, "total": 0, "data": [], "settlementData": [] } } }, { "new": true },
                 (err,doc)=>{
                     if(err){
                         console.log(err);
@@ -28,7 +28,7 @@ const dashOperation = {
         console.log(check);
         if (check) {
             userModel.findOneAndUpdate({ username: userObject.username },
-                { "$push": { "friends": userObject.defaultUser, "expensis": { "name": userObject.defaultUser, "total": 0, "data": [] } } }, { "new": true },
+                { "$push": { "friends": userObject.defaultUser, "expensis": { "name": userObject.defaultUser, "total": 0, "data": [], "settlementData": [] } } }, { "new": true },
                 (err,doc)=>{
                     if(err){
                         console.log(err);
@@ -80,7 +80,8 @@ const dashOperation = {
         })
     },
     settleUp(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$inc":{"expensis.$.total": userObject.val}},{"new": true},
+        console.log(userObject.val);
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$push" : {"expensis.$.settlementData" : {"desc": "settlement","ammount": userObject.val}}, "$inc":{"expensis.$.total": userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
@@ -92,7 +93,7 @@ const dashOperation = {
         })
     },
     settleUpOtherSide(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$inc":{"expensis.$.total": -userObject.val}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$push" : {"expensis.$.settlementData" : {"desc": "settlement","ammount": userObject.val}}, "$inc":{"expensis.$.total": -userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
