@@ -22,6 +22,9 @@ const dashController = {
     },
     settle(request, response){
         dashOperation.settleUp(request.body,response);
+    },
+    deleteExpense(request, response){
+        dashOperation.deleteExpense(request.body,response);
     }
 
 }

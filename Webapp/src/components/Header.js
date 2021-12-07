@@ -5,7 +5,8 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import logo from '../images/logo.png';
 
-import '../components/LandingComponent/Landing.scss'
+import '../components/LandingComponent/Landing.scss';
+
  const Header = (props)=>{
     return (
         <nav className = "landingNav fixed-top">

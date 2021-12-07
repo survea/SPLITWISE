@@ -48,6 +48,7 @@ export default class SignUp extends Component {
             <div>
             <Header/>
             <div className="signup-feature">
+                <main>
                 <div className="container signup">
                     <img className="signup-img-logo" src={logo} alt="SplitWise Logo" />
                     <form
@@ -76,6 +77,7 @@ export default class SignUp extends Component {
                         <button type='submit' className='btn' disabled={sendingEmail}>Sign me up!</button>
                     </form>
                 </div>
+                </main>
             </div>
             <Footer/>
             </div>

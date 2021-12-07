@@ -16,18 +16,21 @@ function calculate(props){
    balanceOwed = [];
    if(props.user.expensis){
    props.user.expensis.forEach(element => {
+    expense += parseInt(element.total);
 if(element.data){
-  expense += parseInt(element.data.ammount);
-      if(element.data.ammount>0){
-        balOwed += parseInt(element.data.ammount);
+      if(element.total>0){
+        balOwed += parseInt(element.total);
         balanceOwed.push(element);
-      }else if(element.data.ammount<0){
-        balOwe += parseInt(element.data.ammount);
+      }else if(element.total<0){
+        balOwe += parseInt(element.total);
         balanceOwe.push(element);
       }
     }
    });
   }
+}
+var checkExpenseHistory = (username, props) => {
+  props.checkExpenseHistory(username);
 }
 
  const MainDashboard = props => {
@@ -75,11 +78,11 @@ if(element.data){
         <div className="float-left ml-3 borders">
           <ul>
             {(balanceOwe.length == 0)?<li>You do not owe anything</li>:balanceOwe.map(value=>
-             <li>
+             <li onClick ={() => props.checkExpenseHistory(value.name)}>
                <img className="imgs" src={personProfile} alt="" align="left"/>
              <div className="inline-style">
                <h5>{value.name}</h5>
-               <span>you owe ${-(value.data.ammount)}</span>
+               <span>you owe ${-(value.total)}</span>
              </div>
            </li>
             )}
@@ -91,11 +94,11 @@ if(element.data){
         <div>
           <ul>
           {(balanceOwed.length == 0)?<li>You are not owed</li>:balanceOwed.map(value=>
-            <li>
+            <li onClick ={() => checkExpenseHistory(value.name, props)}>
             <img className="imgs" src={personProfile} alt="" align="left"/>
             <div className="inline-style">
               <h5>{value.name}</h5>
-              <span>owes you ${value.data.ammount}</span>
+              <span>owes you ${value.total}</span>
             </div>
           </li>
             )}

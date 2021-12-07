@@ -1,0 +1,38 @@
+@import 'variables';
+
+// Adding styles for the AboutInfo page
+
+// Creating a common style for the page
+.faq{
+    font-family: 'Roboto', sans-serif;
+    background-image: url($backgroundimageurl);
+  }
+
+//  Setting up the styles for the blog image 
+
+.faq-image{
+    background-image: url($backgroundimageurl);
+    margin-left: 530px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    width: 500px;
+}
+
+// Setting up styles for the text blog
+
+.faq-desc{
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size: 20px;
+    p{
+        margin-left: 224px;
+        margin-right: 224px;
+    }
+    li{
+        margin-left: 250px;
+        i{
+            color: #57C6A8;
+        }
+    }
+    
+}
