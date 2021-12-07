@@ -8,6 +8,7 @@ import { Landing } from '../components/LandingComponent/Landing';
 import AuthComp from '../containers/AuthComp';
 import AboutInfo from '../components/LandingComponent/AboutInfo';
 
+import Confirm from '../components/SignupComponent/Confirm';
 export class App extends React.Component {
   render() {
     return (
@@ -17,6 +18,7 @@ export class App extends React.Component {
           <Route exact path="/login" component={LoginContainer}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
           <Route exact path="/aboutus" component={AboutInfo}></Route>
+          <Route exact path='/confirm/:id' component={Confirm} />
           <AuthComp>
             <Route exact path="/dashboard" component={Dashboard}></Route>
           </AuthComp>

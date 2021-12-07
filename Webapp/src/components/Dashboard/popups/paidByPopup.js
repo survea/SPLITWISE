@@ -12,7 +12,6 @@ export  const PaidBy = (props)=>{
             {props.list.map((value)=>{
                return  <li onClick = {(event)=>{
                     props.byValue(event.target.id);
-                  
                 }} id = {value}>
                     <img className = "pro-img"src={require("../../../images/person-profile.png")} alt="" srcset=""/>
                     {value}</li>
