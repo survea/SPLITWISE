@@ -24,8 +24,10 @@ const About = (props) => {
                         <NavLink to="/faq">FAQ  </NavLink>
                         <span className="about">Made with :) in Boston, MA, USA</span>
                     </div>
-                    {/* <div><a href="https://blog.splitwise.com/">FAQ</a> </div> */}
-                    <div><a href="https://dev.splitwise.com/">Partners</a></div>
+                    <div>
+                        <NavLink to="/team">Team  </NavLink>
+                    </div>
+
                     <div className="social-media">
                         <a href="https://www.facebook.com/"><img src={facebook} alt="facebook" /></a>
                         <a href="https://twitter.com/"><img src={twitter} alt="twitter" /></a>

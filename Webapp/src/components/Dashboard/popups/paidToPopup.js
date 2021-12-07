@@ -1,12 +1,15 @@
 import React from "react";
 export  const PaidTo = (props)=>{
  return(
-     <div className = "boxtwo">
-          <div className = "fheader">   
+     <div className = "secondBox">
+          <div className = "frnd-header">   
         <span>Paid To</span>
+        <button className="float-right" >
+              <i class="fas fa-times" />
+            </button>
         </div>
         {/*displayig the names in list */}
-        <ul className = "list">
+        <ul className = "myList">
         {props.list.map((value)=>{
                return  <li onClick = {(event)=>{
                     props.toValue(event.target.id);       
