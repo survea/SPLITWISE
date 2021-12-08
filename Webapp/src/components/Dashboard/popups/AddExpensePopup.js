@@ -13,6 +13,7 @@ export class AddExpense extends React.Component {
       chips: []
     };
   }
+  // to get the date
   getdate() {
     var today = new Date();
 
@@ -28,6 +29,7 @@ export class AddExpense extends React.Component {
     console.log(chips);
     this.setState({ ...this.state, chips });
   };
+  // to save the data
   save() {
     this.input.amount = Math.round(parseInt(this.input.amount)/(this.state.chips.length + 1));
   
