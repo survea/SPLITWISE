@@ -52,7 +52,7 @@ var checkExpenseHistory = (username, props) => {
         <div className="total">
           <div className="fitting">
             <label htmlFor="">total balance</label>
-            <p className="green">$ {expense.toString().replace("-","")}</p>
+            <p className={`${expense > 0 ? "green" : "red"}`}>$ {expense.toString().replace("-","")}</p>
           </div>
           <div className="fitting">
             <label htmlFor="">you owe</label>
@@ -83,7 +83,8 @@ var checkExpenseHistory = (username, props) => {
                <img className="imgs" src={personProfile} alt="" align="left"/>
              <div className="inline-style">
                <h5>{value.name}</h5>
-               <span>you owe ${-(value.total)}</span>
+               <span>you owe</span>
+               <span className={`${value.total > 0 ? "green" : "red"}`}>${-(value.total)}</span>
              </div>
            </li>
             )}
