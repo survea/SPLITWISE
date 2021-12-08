@@ -59,7 +59,7 @@ export class Dashboard extends React.Component {
         {this.state.displayFriend && <Friend friend={this.displayFriend.bind(this)} />}
         {this.state.showExp && <AddExpense friend={this.showExpense.bind(this)} />}
         {this.state.settleUp && <SettleUp friend={this.settle.bind(this)} />}
-        <div className="flex background-img">
+        <div className="flex background-img ">
           <AddFriend friend={this.displayFriend.bind(this)} />
           <MainDashboard friend={this.showExpense.bind(this)} settlement={this.settlement.bind(this)} checkExpenseHistory={this.checkExpenseHistory.bind(this)} />
           <ExpenseTable expenseTable={this.state.userRequested} checkExpenseHistory={this.checkExpenseHistory.bind(this)} />
