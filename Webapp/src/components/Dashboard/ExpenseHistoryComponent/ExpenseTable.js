@@ -72,10 +72,8 @@ const ExpenseTable = props => {
     return (
         <div>
             {clickedUser != '' &&
-
-
                 <><h1 className="title-styling"><center>Expense List</center></h1><div>
-                    <table className="todo-table" id="todoList">
+                    <table className="todo-table" id="todoList">    
                         <thead>
                             <tr className = "green-background">
                                 <th>Description</th>
