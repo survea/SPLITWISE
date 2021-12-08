@@ -41,6 +41,7 @@ import { withRouter } from "react-router-dom";
     }
     render(){
         return(
+            // directing the login page
         <Login sts = {this.state.invalid} input = {this.TakeInput.bind(this)} login = {this.Login.bind(this)}/>
         )
     }

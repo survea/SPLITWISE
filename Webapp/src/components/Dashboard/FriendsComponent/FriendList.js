@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 const FriendList = props => {
   return (
     <ul>
+      {/* getting friends list from the map and iterating it */}
       {props.user.friends.map(value =>  <li className="friendlist">
         <div className = "hoverCont">
           <i className="fas fa-user"><span>{value}</span></i>

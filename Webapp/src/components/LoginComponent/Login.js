@@ -38,6 +38,7 @@ export const Login = (props)=>{
           <input  id="email" onChange={(props.input)} className="form-control" type="text" required />
           <label for="password">Password</label>
           <input id="password" onChange={(props.input)} className="form-control" type="text" required />
+          {/* checking if the login is successfull or not */}
           {props.sts && <p style = {{color: "red"}}><i className="fas fa-exclamation-circle"></i> Invalid Username or Password</p>}
           <button onClick={props.login} className = "login-btn">Log In</button>
         </div>
