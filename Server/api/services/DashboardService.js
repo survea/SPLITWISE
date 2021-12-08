@@ -2,6 +2,16 @@ const userModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
 const dashOperation = {
+    // Function to add date 
+    getCurrentDate(){
+        let separator ='-'
+        let newDate = new Date()
+        let date = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let year = newDate.getFullYear();
+
+        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`
+    },
     // function to add new friend
     async AddFriend(userObject, response) {
         var check = await this.Find(userObject.username);
@@ -84,7 +94,7 @@ const dashOperation = {
     // Function to settle up on one side
     settleUp(userObject,response){
         console.log(userObject.val);
-        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$push" : {"expensis.$.settlementData" : {"desc": "settlement","ammount": userObject.val}}, "$inc":{"expensis.$.total": userObject.val}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.username,"expensis.name":userObject.user},{"$push" : {"expensis.$.settlementData" : {"desc": "settlement", "date": this.getCurrentDate(),"ammount": userObject.val}}, "$inc":{"expensis.$.total": userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
@@ -97,7 +107,7 @@ const dashOperation = {
     },
     // function to settle on other side
     settleUpOtherSide(userObject,response){
-        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$push" : {"expensis.$.settlementData" : {"desc": "settlement","ammount": userObject.val}}, "$inc":{"expensis.$.total": -userObject.val}},{"new": true},
+        userModel.findOneAndUpdate({username: userObject.user,"expensis.name":userObject.username},{"$push" : {"expensis.$.settlementData" : {"desc": "settlement", "date": this.getCurrentDate(),"ammount": userObject.val}}, "$inc":{"expensis.$.total": -userObject.val}},{"new": true},
         (err,doc)=>{
             if(err){
                 console.log(err);
