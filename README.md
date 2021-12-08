@@ -25,9 +25,10 @@ The purpose of the website application is to create a platform where user we can
 
 ## Steps to Run the project:
 - Step 1. : Start the Mongodb server
-- Step 2. : Start the nodejs server using commands after opening terminal for backend : **npm install npm server.js**
-- Step 3. : Once the nodejs and mongodb server is running, run the following commands on frontend : **npm install npm start**
-- Step 4. : Open localhost:3000, the homepage will be displayed
+- Step 2. : Create a collection with name splitwise_db
+- Step 3. : Start the nodejs server using commands after opening terminal for backend : **npm install npm server.js**
+- Step 4. : Once the nodejs and mongodb server is running, run the following commands on frontend : **npm install npm start**
+- Step 5. : Open localhost:3000, the homepage will be displayed
 
 ## Project Group Members Details :-
 - Aishwarya Surve (NUID - 002123768)
