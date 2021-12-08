@@ -18,7 +18,7 @@
 .todo-table {
     margin-left: 20px;
     padding: 20px;
-    width: 700px;
+    width: 500px;
     background: #f8f5f5;
 }
 
@@ -96,4 +96,9 @@ label.validation-error{
 .title-styling {
     margin-top: 50px;
     color: #FF652F;
+    font-size: 20px;
+}
+.green-background {
+    background-color: #48b495 !important;
+    color: white;
 }

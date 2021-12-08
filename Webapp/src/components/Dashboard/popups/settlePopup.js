@@ -10,7 +10,9 @@ import { userActionCreator } from '../../../redux/actionCreator/userAction';
     constructor(props){
     super(props);
     this.val = 0;
-    this.props.user.friends.push(this.props.user.username);
+    if(!this.props.user.friends.includes(this.props.user.username)) {
+        this.props.user.friends.push(this.props.user.username);
+    }
     this.state = {paidBy:false,paidTo:false,byValue: "you",toValue:"select"}
     }
 

@@ -74,10 +74,10 @@ const ExpenseTable = props => {
             {clickedUser != '' &&
 
 
-                <><h1 className="title-styling"><center>Expense List</center></h1><div className="todo-table">
-                    <table className="list" id="todoList">
+                <><h1 className="title-styling"><center>Expense List</center></h1><div>
+                    <table className="todo-table" id="todoList">
                         <thead>
-                            <tr>
+                            <tr className = "green-background">
                                 <th>Description</th>
                                 <th>Date</th>
                                 <th>Amount</th>
@@ -90,10 +90,10 @@ const ExpenseTable = props => {
                     </table>
                 </div><br />
                 
-                <h1 className="title-styling"><center>Settlement List</center></h1><div className="todo-table">
-                    <table className="list" id="todoList">
+                <h1 className="title-styling"><center>Settlement List</center></h1><div>
+                    <table className="todo-table" id="todoList">
                         <thead>
-                            <tr>
+                            <tr className = "green-background">
                                 <th>Description</th>
                                 <th>Date</th>
                                 <th>Amount</th>
