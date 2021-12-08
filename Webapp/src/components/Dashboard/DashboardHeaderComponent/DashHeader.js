@@ -14,6 +14,7 @@ let openForm = (prop) =>{
 let closeForm = (prop) =>{
   document.getElementById("openForm").style.display = "none";
 }
+// function to update the profile
 let updateProfile = (props) =>{
   if (props.user.username == undefined || props.user.password == undefined || props.user.email == undefined) {
       alert("form is Incomplete");
@@ -33,6 +34,7 @@ let updateProfile = (props) =>{
       })
   }
 }
+// function to display dash header
 const DashHeader = (props) => {
   return (
     <nav className="DashNav fixedTop">

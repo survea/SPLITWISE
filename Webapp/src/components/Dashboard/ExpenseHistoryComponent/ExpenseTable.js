@@ -6,10 +6,12 @@ import { store } from '../../../redux/store';
 import { userActionCreator } from '../../../redux/actionCreator/userAction';
 
 var selectedUser;
+
 function addNewClick() {
     const targetDiv = document.getElementById("expenseTableForm");
     targetDiv.style.display = "block";
 }
+// function to remove expense
 async function removeData(rowData, user) {
     // this.setState({ sendingEmail: true })
     var pr = instance.post('/dashboard/deleteExpense', {
@@ -29,6 +31,7 @@ async function removeData(rowData, user) {
         }
     })
 }
+// function to display table
 function renderTableData(user) {
     if (user.expensis) {
         var selectedUserData = user.expensis.find((element) => {
@@ -47,6 +50,7 @@ function renderTableData(user) {
         });
     }
 }
+// function to display settlement information
 function displaySettlementInfo(user) {
     if (user.expensis) {
         var selectedUserData = user.expensis.find((element) => {
@@ -65,7 +69,7 @@ function displaySettlementInfo(user) {
         });
     }
 }
-
+// Fucntion to display the expenses tables
 const ExpenseTable = props => {
     const clickedUser = props.expenseTable;
     selectedUser = props.expenseTable;

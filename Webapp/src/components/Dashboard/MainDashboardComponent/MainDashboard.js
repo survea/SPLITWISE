@@ -8,6 +8,7 @@ var balOwe = 0;
 var balOwed = 0;
 var balanceOwe = [];
 var balanceOwed = [];
+// function to display the expensis on dashboard
 function calculate(props){
    expense = 0;
    balOwe = 0;

@@ -6,6 +6,7 @@ import { store } from "../../../redux/store";
 import { connect } from "react-redux";
 
 var userInput = { defaultUser: "" };
+// function to add friend
 let addFriend = (props) => {
   userInput.defaultUser = props.user.username;
             
@@ -27,6 +28,7 @@ let addFriend = (props) => {
       console.log(err);
     });
 };
+// display friends popup
 const Friend = props => {
   return (
     <div className="friendPopup">
