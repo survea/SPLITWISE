@@ -24,29 +24,32 @@ export class Dashboard extends React.Component {
     //     store.dispatch(action);
     // })
 }
+// function to display add friend popup
 displayFriend(){
   this.setState({...this.state,displayFriend: !this.state.displayFriend});
   console.log(this.state.displayFriend);
 }
+// function to display show expense popup
 showExpense(){
     this.setState({...this.state,showExp: !this.state.showExp});
     console.log(this.state.showExp);
 }  
+// function to display settle up popup
 settle(){
   this.setState({...this.state,settleUp: !this.state.settleUp});
   console.log(this.state.settleUp);
 }
-
+// function to display settlements
 settlement(userName){
     this.setState({...this.state,settleUp: !this.state.settleUp});
     console.log(this.state.settleUp);
 }
-
+// function to display update profile popup
 profile(){
   this.setState({...this.state,showProfile: !this.state.showProfile});
     console.log(this.state.showProfile);
 }
-
+// function to display expense and settlement history
 checkExpenseHistory(userName) {
 this.setState({...this.state, userRequested : userName});
 }

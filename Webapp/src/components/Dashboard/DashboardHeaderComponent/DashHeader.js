@@ -14,6 +14,7 @@ let openForm = (prop) =>{
 let closeForm = (prop) =>{
   document.getElementById("openForm").style.display = "none";
 }
+// function to update the profile
 let updateProfile = (props) =>{
   if (props.user.username == undefined || props.user.password == undefined || props.user.email == undefined) {
       alert("form is Incomplete");
@@ -33,6 +34,7 @@ let updateProfile = (props) =>{
       })
   }
 }
+// function to display dash header
 const DashHeader = (props) => {
   return (
     <nav className="DashNav fixedTop">
@@ -52,35 +54,36 @@ const DashHeader = (props) => {
         <div className="frnd-content">
           <div className="frnd-header">
             <span>My profile Details</span>
-            <button className="float-right" onClick={props.Profile}>
-              <i className="fas fa-times" />
-            </button>
           </div>
-
+          <lable className= "lblBlack">Name</lable>
           <input id="username" 
             onChange={(event) => {
               props.user.username  = event.target.value;
             }} 
-            placeholder={props.user.username} 
+            defaultValue ={props.user.username} 
+            placeholder="Name"
             className="frnd-name" 
             type="text" />
+          <lable className= "lblBlack">Email</lable>
           <input id="email" 
             onChange={(event) => {
               props.user.email = event.target.value;
             } }
-            placeholder={props.user.email} 
+            defaultValue ={props.user.email} disabled
+            placeholder= "Password" 
             className="frnd-name" 
-            type="text"  />
+            type="text"/>
+          <lable className= "lblBlack">Change Password</lable>
           <input
             id="password"
             onChange={(event) => {
               props.user.password = event.target.value;
            }}
-            placeholder={props.user.password}
+           defaultValue ={props.user.password} 
+           placeholder="Password"
             className="frnd-name"
             type="password"
           />
-
           <div className="pop-btn">
             <button className="btn Add"
               onClick={() => { updateProfile(props);}}

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// reading the friends list
 const FriendList = props => {
   return (
     <ul>
@@ -9,7 +10,6 @@ const FriendList = props => {
           <i className="fas fa-user"><span>{value}</span></i>
         </div>
       </li>)}
-      
     </ul>
   );
 };
