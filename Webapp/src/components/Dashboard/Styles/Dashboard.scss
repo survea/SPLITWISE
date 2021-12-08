@@ -1,4 +1,4 @@
-
+@import '../../LandingComponent/variables';
 .AddFriendBox{
     height: 100vh;
     width: 380px;  
@@ -15,13 +15,71 @@
     display: flex;
 }
 .content{
-    height: 22px;
-    width: 148px;
-    margin-top: 50px;
-    margin-left: 45%;
-    background: #EEEEEE; 
-    font-size: 13px;
+    height: 7px;
+    width: 169px;
+    margin-top: 84px;
+    margin-left: 18%;
+    font-size: 16px;
+    color: #999999;
 }
+
+.friend{
+    position: relative;
+    margin-left: -9px;
+    background: #f6f6f6;
+    color: #999999;
+    font-size: 14px;
+    margin-top: 5px;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+    padding: 0 5px;
+}
+
+.addBtn{
+    height: 28px;
+    width: 58px;
+    border: none;
+    background: #f6f6f6;
+    color: #999999;
+}
+
+.hoverCont:hover {
+    width: 169px;
+    height: 24px;
+    background: #eee;
+    color: #FF652F;
+}
+
+.input-prepend{
+    margin-left: -13px;
+    color: #999999;
+}
+
+.input-prepend :hover{
+    background: #eee;
+    color: #FF652F;
+}
+
+.addBtn:hover{
+    color: #5bc5a7;
+    border-color: #5bc5a7;
+}
+
+span{
+    margin-left: 10px;
+}
+
+#filter_search{
+    width: 159px;
+    margin-left: 2px;
+    border:none;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=text]:focus{
+    outline: none;
+  }
 
 /* *********************Main Dashboard********************** */
 .mainDash{
@@ -112,4 +170,8 @@ li{
     border-right:  1px solid lightgray;
     height: auto;
     margin-right: 25px;
+}
+.background-img  {
+    background-image: url('../../../images/facets.png');
+    // background-image: url('https://assets.splitwise.com/assets/core/facets.png');
 }

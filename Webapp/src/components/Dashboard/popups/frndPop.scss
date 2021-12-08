@@ -21,9 +21,7 @@
     width: 352px;
     min-height: 303px;
     height: auto;
-  
     border: 1px solid #888;
-   
 }
 
 .frnd-header{
@@ -45,7 +43,7 @@
 }
 
 .frnd-name{
-    width: 95%;
+    width: 90%;
     margin: 5px;
     padding: 5px;
     padding-bottom: 10px;
@@ -56,15 +54,23 @@
     outline: none;
 }
 
-.pop-btn{
-    margin-top: 45px;
+.pop-btn {
+    margin-top: 10px;
     margin-left: 55px;
     
 }
+
+.pop-btns-expense {
+    margin-top: 17px;
+    margin-left: 60px;
+}
+
+
 .pop-btn .Add{
     background: #FF652F;
     color: white;
     margin-right:35px; 
+    padding:  8px 25px 8px 25px; 
 }
 .pop-btn .cut{
     background: #5BC5A7;
@@ -138,6 +144,10 @@
     left: 62%;
 }
 
+.lblBlack{
+    color: black;
+}
+
 /* ******************settle up****************** */
 .frnd-set{
     text-align: center;
@@ -164,7 +174,8 @@
     font-size: 18px;
 }
 .bt-mr{
-    margin-left: 25%;
+    margin-top: 38px;
+    margin-left: 69px;
 }
 .flx{
     display: flex;
@@ -181,10 +192,6 @@
     width: 25px;
     margin-right: 12px;
     /* margin-left: px; */
-}
-.myList{
-    
-   
 }
 .myList li{
     list-style-type: none;

@@ -29,6 +29,7 @@ const userController = {
     signIn(request, response){
         userOperation.AddUser(request.body,response);
     },
+    // update the user details
     updateUser(request, response){
         const id = request.params.id;
         const respBody = {...request.body, id};

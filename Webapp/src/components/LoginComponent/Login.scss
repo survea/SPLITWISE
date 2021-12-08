@@ -1,3 +1,4 @@
+@import '../LandingComponent/variables';
 .container {
     display: flex;
     margin-top: 10%;  
@@ -9,7 +10,8 @@
 }
 
 .login-feature{
-    background-image: url('https://assets.splitwise.com/assets/core/facets.png');
+    // background-image: url('https://assets.splitwise.com/assets/core/facets.png');
+    background-image: url($backgroundimageurl);
     //background: #F3F3F3;
     width: 100%;
     height: 700px;

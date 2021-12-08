@@ -15,7 +15,8 @@
   .DashNav{
     height: 45px;
     width: 100%;
-    background:#57c4c4f6;
+    // background:#57c4c4f6;
+    background: #5BC5A7;
     color: rgba(236, 236, 236, 0.966);
   }
 
@@ -37,6 +38,10 @@
 .profileBtn{
   background: none;
   border: none;
+}
+.lblBlack{
+  color: black;
+  margin-left: 2px;
 }
 #openForm{
   display: none;

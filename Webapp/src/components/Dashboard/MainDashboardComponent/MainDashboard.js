@@ -8,6 +8,7 @@ var balOwe = 0;
 var balOwed = 0;
 var balanceOwe = [];
 var balanceOwed = [];
+// function to display the expensis on dashboard
 function calculate(props){
    expense = 0;
    balOwe = 0;
@@ -39,7 +40,7 @@ var checkExpenseHistory = (username, props) => {
       {calculate(props)}
       <div className="mainDash">
         <div className="DashHeader">
-        <NavLink to="/dashboard"><h3>Dashboard</h3></NavLink>
+        <h3>Dashboard</h3>
           <button className="btn float-right settlement" onClick={props.settlement}>
             Settle up
           </button>
