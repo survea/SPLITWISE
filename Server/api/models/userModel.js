@@ -2,6 +2,7 @@ const mongoose = require('../app.js');
 
 const Schema = mongoose.Schema;
 
+// User model to save the details
 const UserSchema = new Schema({
     username: { type: String, unique: true },
     email: { type: String, unique: true },

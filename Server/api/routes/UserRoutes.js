@@ -18,9 +18,11 @@ router.route('/updateUser/:id')
 router.route('/login')
 .post(userController.login);
 
+// to the email verification 
 router.route('/email')
 .post(emailController.collectEmail);
 
+// to confirm if the email is confirmed
 router.route('/email/confirm/:id').get(emailController.confirmEmail);
 
 module.exports =  router;

@@ -17,6 +17,7 @@ router.route('/addExpense')
 router.route('/settle')
 .post(dashController.settle);
 
+// to delete the expenses
 router.route('/deleteExpense')
 .post(dashController.deleteExpense);
 
