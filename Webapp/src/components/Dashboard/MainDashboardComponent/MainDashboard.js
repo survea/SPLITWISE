@@ -37,6 +37,7 @@ var checkExpenseHistory = (username, props) => {
  const MainDashboard = props => {
   return (
     <div id ="" className="main">
+      {/* main dashboard to display the calculated amount */}
       {calculate(props)}
       <div className="mainDash">
         <div className="DashHeader">
@@ -78,6 +79,7 @@ var checkExpenseHistory = (username, props) => {
       <div className = "flex">
         <div className="float-left ml-3 borders">
           <ul>
+            {/* the balance owe */}
             {(balanceOwe.length == 0)?<li>You do not owe anything</li>:balanceOwe.map(value=>
              <li onClick ={() => props.checkExpenseHistory(value.name)}>
                <img className="imgs" src={personProfile} alt="" align="left"/>
@@ -90,11 +92,9 @@ var checkExpenseHistory = (username, props) => {
             )}
           </ul>
         </div>
-
-
-
         <div>
           <ul>
+            {/* the balance Owed */}
           {(balanceOwed.length == 0)?<li>You are not owed</li>:balanceOwed.map(value=>
             <li onClick ={() => checkExpenseHistory(value.name, props)}>
             <img className="imgs" src={personProfile} alt="" align="left"/>

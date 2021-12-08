@@ -24,14 +24,16 @@ import { withRouter } from "react-router-dom";
                 console.log(response.data);
                 const token = response.data.token;
                 localStorage.setItem('jwtToken',token)
-                this.props.history.push("/dashboard");
                 if(response.data.Status === 'S'){
                     this.props.history.push("/dashboard");
                 }
                 else if(response.data.Status === 'F'){
                   this.setState({invalid:true});
+                //   alert if we have failed the logins
                   if(response.data.Status === 'F' && response.data.msg === 'Please confirm your email id to start') {
                     alert("Please confirm your email id to start");
+                  } else{
+                    alert("Please enter valid email id or password"); 
                   }
                 }
             })
@@ -39,6 +41,7 @@ import { withRouter } from "react-router-dom";
     }
     render(){
         return(
+            // directing the login page
         <Login sts = {this.state.invalid} input = {this.TakeInput.bind(this)} login = {this.Login.bind(this)}/>
         )
     }
