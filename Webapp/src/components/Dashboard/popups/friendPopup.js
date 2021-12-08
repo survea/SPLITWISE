@@ -13,6 +13,9 @@ let addFriend = (props) => {
   if(userInput.username == props.user.username){
      alert("you can't add yourself as your Friend");
      return;
+  } else if(props.user.friends.includes(userInput.username)) {
+    alert("Friend already added");
+     return;
   }
   instance
     .post("/dashboard/addFriend", userInput)
@@ -20,7 +23,8 @@ let addFriend = (props) => {
       if (resp.data.doc) {
         var action = userActionCreator(resp.data.doc, "AddUser");
         store.dispatch(action);
-      } else {
+      } else if(resp.data.Status == 'F') {
+        alert(resp.data.msg);
         console.log("user not found");
       }
     })
