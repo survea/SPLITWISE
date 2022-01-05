@@ -30,8 +30,3 @@ The purpose of the website application is to create a platform where user we can
 - Step 4. : Once the nodejs and mongodb server is running, run the following commands on frontend : **npm install npm start**
 - Step 5. : Open localhost:3000, the homepage will be displayed
 
-## Project Group Members Details :-
-- Aishwarya Surve (NUID - 002123768)
-- Diksha Godse (NUID - 002116411)
-- Nishitha Surendran (NUID - 002951856)
-- Rajiv Ranjan Sahu (NUID - 002101619)
